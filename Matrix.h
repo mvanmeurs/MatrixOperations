@@ -292,19 +292,19 @@ Item Matrix<Item>::getDeterminantTriple() const{
     Matrix<Item> m3(2, 2);
 
     for(unsigned r = 0 ; r < 2 ; r++){
-        for(unsigned c = 0 ; c < 2 ; ){
-            m1[r][c] = myVec[r+1][c+1];
+        for(unsigned c = 0 ; c < 2 ; c++){
+            m1.myVec[r][c] = myVec[r+1][c+1];
         }
     }
 
-    m2[0][0] = myVec[1][0];
-    m2[0][1] = myVec[1][2];
-    m2[1][0] = myVec[2][0];
-    m2[1][1] = myVec[2][2];
+    m2.myVec[0][0] = myVec[1][0];
+    m2.myVec[0][1] = myVec[1][2];
+    m2.myVec[1][0] = myVec[2][0];
+    m2.myVec[1][1] = myVec[2][2];
 
     for(unsigned r = 0 ; r < 2 ; r++){
-        for(unsigned c = 0 ; c < 2 ; ){
-            m3[r][c] = myVec[r+1][c];
+        for(unsigned c = 0 ; c < 2 ; c++){
+            m3.myVec[r][c] = myVec[r+1][c];
         }
     }
 
