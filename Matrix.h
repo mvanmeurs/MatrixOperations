@@ -37,8 +37,7 @@ public:
 	Matrix<Item> operator*(const Matrix<Item>&) const;
 	Matrix<Item> getTranspose() const;
 	void toString() const;
-    Item getDeterminantTriple() const;
-	Item getDeterminantDouble() const;
+    Item getDeterminant() const;
     Item getX() const;
     Item getY() const;
     Item getZ() const;
@@ -46,6 +45,8 @@ private:
 	unsigned myRows;
 	unsigned myColumns;
 	Vec< Vec<Item> > myVec;
+    Item getDeterminantTriple() const;
+    Item getDeterminantDouble() const;
 	friend class MatrixTester;
 };
 
@@ -288,6 +289,19 @@ void Matrix<Item>::toString() const{
 		if(r!=myRows-1){cout << '\n' << flush;}
 	}
 	cout << "}" << '\n' << flush;
+}
+
+template<class Item>
+Item Matrix<Item>::getDeterminant() const{
+    if(myRows == myColumns == 2){
+        return getDeterminantDouble();
+    }
+    else if(myRows == myColumns == 3){
+        return getDeterminantTriple();
+    }
+    else{
+        throw MatrixDimensionException("getDeterminant: ", "Dimensions must be 2x2 or 3x3");
+    }
 }
 
 template<class Item>
