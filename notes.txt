@@ -1,10 +1,6 @@
 Throw an exception:
-    -Item is defined as unsigned
-    -getX getY and getZ dimensions aren't 3x4
-    -getDeterminant Double if dimensions aren't 2x2
-    -getDeterminant Triple if dimensions aren't 3x3
-    combine the get Determinant functions
-    divide by zero exception
+    -Item is defined as unsigned exception
+    combine get varible methods
 methods:
     cross product
     dot product

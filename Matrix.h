@@ -13,6 +13,7 @@
 
 #include "Vec.h"
 #include "MatrixDimensionException.h"
+#include "TypeDefException.h"
 
 using namespace std;
 

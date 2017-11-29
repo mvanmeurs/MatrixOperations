@@ -10,15 +10,15 @@
 using namespace std;
 
  
-class MatrixDimensionException {
+class TypeDefException {
 public:
-   MatrixDimensionException(const string& whereThrown, const string& message) {
+   TypeDefException(const string& whereThrown, const string& message) {
        myLocation = whereThrown; 
        myMessage = message; 
    }
 
    string asString() const {
-       return "*** Matrix Dimension Exception in " +
+       return "*** TypeDef Exception in " +
                myLocation + ": " + myMessage; 
    }
 
@@ -28,7 +28,7 @@ private:
 };
 
 
-/* Function to allow a MatrixDimensionsException (or a subclass) to be displayed
+/* Function to allow a TypeDefException (or a subclass) to be displayed
  * via an ostream.
  * Parameters: out, an ostream;
  *             se, a StackException.
@@ -36,8 +36,8 @@ private:
  * into out
  *             && return-value == out.
  */
-inline ostream& operator<<(ostream& out, const MatrixDimensionException& mde) {
-      out << mde.asString();
+inline ostream& operator<<(ostream& out, const TypeDefException& tde) {
+      out << tde.asString();
       return out;
 }
 
