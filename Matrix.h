@@ -337,6 +337,7 @@ Item Matrix<Item>::getDeterminantDouble() const{
 
 template<class Item>
 Item Matrix<Item>::getX() const{
+	if(myRows != 3 || myColumns != 4){throw MatrixDimensionException("Solve for a variable: ", "must be a 3x4 matrix");}
     Matrix<Item> bottom(3, 3);
     for(Item r = 0 ; r < 3 ; r++){
         for(Item c = 0 ; c < 3 ; c++){
@@ -360,6 +361,7 @@ Item Matrix<Item>::getX() const{
 
 template<class Item>
 Item Matrix<Item>::getY() const{
+	if(myRows != 3 || myColumns != 4){throw MatrixDimensionException("Solve for a variable: ", "must be a 3x4 matrix");}
     Matrix<Item> bottom(3, 3);
     for(Item r = 0 ; r < 3 ; r++){
         for(Item c = 0 ; c < 3 ; c++){
@@ -384,6 +386,7 @@ Item Matrix<Item>::getY() const{
 
 template<class Item>
 Item Matrix<Item>::getZ() const{
+	if(myRows != 3 || myColumns != 4){throw MatrixDimensionException("Solve for a variable: ", "must be a 3x4 matrix");}
     Matrix<Item> bottom(3, 3);
     for(Item r = 0 ; r < 3 ; r++){
         for(Item c = 0 ; c < 3 ; c++){
