@@ -9,9 +9,7 @@ using namespace std;
 MatrixTester::MatrixTester(){
     cout << "Testing Class Matrix..." << endl;
     testDoubleMatrix();
-    cout << endl;
     testTripleMatrix();
-    cout << endl;
     testGetX();
     cout << "All tests passed!" << endl;
 }
@@ -42,6 +40,16 @@ void MatrixTester::testDoubleMatrix(){
     }
     assert(m1.getDeterminantDouble() == 0);
     cout << " 2 " << flush;
+
+    unsigned a = 1;
+    for(unsigned r = 0 ; r < 2 ; r++){
+        for(unsigned c = 0 ; c < 2 ; c++){
+            m1.myVec[r][c] = a;
+            a++;
+        }
+    }
+    assert(m1.getDeterminantDouble() == -2);
+    cout << " 3 " << endl;
 
     cout << "Passed!" << flush;
 }
@@ -79,14 +87,15 @@ void MatrixTester::testTripleMatrix(){
     assert(m1.getDeterminantTriple() == -504);
     cout << " 3 " << flush;
 
-    cout << "Passed!" << flush;
+    cout << "Passed!" << endl;
 }
 
 void MatrixTester::testGetX(){
-    Matrix<unsigned> m(3, 4);
-    unsigned a = 1;
-    for(unsigned r = 0 ; r < 2 ; r++){
-        for(unsigned c = 0 ; c < 4 ; c++){
+    cout << "Testing getX()..." << flush;
+    Matrix<int> m(3, 4);
+    int a = 1;
+    for(int r = 0 ; r < 2 ; r++){
+        for(int c = 0 ; c < 4 ; c++){
             m.myVec[r][c] = a;
             a++;
         }
@@ -96,16 +105,8 @@ void MatrixTester::testGetX(){
     m.myVec[2][2] = 12;
     m.myVec[2][3] = 12;
 
-    for(unsigned r = 0 ; r < 3 ; r++){
-        for(unsigned c = 0 ; c < 4 ; c++){
-            cout << m.myVec[r][c] << " " << flush;
-        }
-    }
-
-    cout << m.getX() << flush;
-
     assert(m.getX() == -1);
     cout << " 0 " << flush;
 
-    cout << "Passed!" << flush;
+    cout << "Passed!" << endl;
 }

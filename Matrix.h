@@ -294,8 +294,8 @@ Item Matrix<Item>::getDeterminantTriple() const{
     Matrix<Item> m2(2, 2);
     Matrix<Item> m3(2, 2);
 
-    for(unsigned r = 0 ; r < 2 ; r++){
-        for(unsigned c = 0 ; c < 2 ; c++){
+    for(Item r = 0 ; r < 2 ; r++){
+        for(Item c = 0 ; c < 2 ; c++){
             m1.myVec[r][c] = myVec[r+1][c+1];
         }
     }
@@ -305,8 +305,8 @@ Item Matrix<Item>::getDeterminantTriple() const{
     m2.myVec[1][0] = myVec[2][0];
     m2.myVec[1][1] = myVec[2][2];
 
-    for(unsigned r = 0 ; r < 2 ; r++){
-        for(unsigned c = 0 ; c < 2 ; c++){
+    for(Item r = 0 ; r < 2 ; r++){
+        for(Item c = 0 ; c < 2 ; c++){
             m3.myVec[r][c] = myVec[r+1][c];
         }
     }
@@ -316,27 +316,28 @@ Item Matrix<Item>::getDeterminantTriple() const{
 
 template<class Item>
 Item Matrix<Item>::getDeterminantDouble() const{
-	return (myVec[0][0]*myVec[1][1]) - (myVec[0][1]*myVec[1][0]);
+	return (myVec[0][0]*myVec[1][1]) - (myVec[1][0]*myVec[0][1]);
 }
 
 template<class Item>
 Item Matrix<Item>::getX() const{
-    Matrix<Item> det(3, 3);
-    for(unsigned r = 0 ; r < 3 ; r++){
-        for(unsigned c = 0 ; c < 3 ; c++){
-            det.myVec[r][c] = myVec[r][c];
+    Matrix<Item> bottom(3, 3);
+    for(int r = 0 ; r < 3 ; r++){
+        for(int c = 0 ; c < 3 ; c++){
+            bottom.myVec[r][c] = myVec[r][c];
         }
     }
     Matrix<Item> top(3, 3);
-    for(unsigned r = 0 ; r < 3 ; r++){
-        for(unsigned c = 0 ; c < 3 ; c++){
+    for(int r = 0 ; r < 3 ; r++){
+        for(int c = 1 ; c < 3 ; c++){
             top.myVec[r][c] = myVec[r][c];
         }
     }
-    for(unsigned r = 0 ; r < 3 ; r++){
+    for(int r = 0 ; r < 3 ; r++){
         top.myVec[r][0] = myVec[r][3];
     }
-    return top.getDeterminantTriple()/det.getDeterminantTriple();
+
+    return top.getDeterminantTriple()/bottom.getDeterminantTriple();
 }
 
 template<class Item>
