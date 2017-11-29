@@ -5,12 +5,14 @@
  * Student 1 methods:operator!=, readFrom(istream), writeTo(filename), operator+
  * Date:10/3/17
  * Begun by: Joel Adams, for CS 112 at Calvin College.
+ * Added to by: Mason VanMeurs
  */
 
 #ifndef MATRIX_H_
 #define MATRIX_H_
 
 #include "Vec.h"
+#include "MatrixDimensionException.h"
 
 using namespace std;
 
@@ -316,38 +318,77 @@ Item Matrix<Item>::getDeterminantTriple() const{
 
 template<class Item>
 Item Matrix<Item>::getDeterminantDouble() const{
-	return (myVec[0][0]*myVec[1][1]) - (myVec[1][0]*myVec[0][1]);
+    return (myVec[0][0]*myVec[1][1]) - (myVec[1][0]*myVec[0][1]);
 }
 
 template<class Item>
 Item Matrix<Item>::getX() const{
     Matrix<Item> bottom(3, 3);
-    for(int r = 0 ; r < 3 ; r++){
-        for(int c = 0 ; c < 3 ; c++){
+    for(Item r = 0 ; r < 3 ; r++){
+        for(Item c = 0 ; c < 3 ; c++){
             bottom.myVec[r][c] = myVec[r][c];
         }
     }
     Matrix<Item> top(3, 3);
-    for(int r = 0 ; r < 3 ; r++){
-        for(int c = 1 ; c < 3 ; c++){
+    for(Item r = 0 ; r < 3 ; r++){
+        for(Item c = 1 ; c < 3 ; c++){
             top.myVec[r][c] = myVec[r][c];
         }
     }
-    for(int r = 0 ; r < 3 ; r++){
+    for(Item r = 0 ; r < 3 ; r++){
         top.myVec[r][0] = myVec[r][3];
     }
+
+    if(bottom.getDeterminantTriple() == 0){return 0;}
 
     return top.getDeterminantTriple()/bottom.getDeterminantTriple();
 }
 
 template<class Item>
 Item Matrix<Item>::getY() const{
+    Matrix<Item> bottom(3, 3);
+    for(Item r = 0 ; r < 3 ; r++){
+        for(Item c = 0 ; c < 3 ; c++){
+            bottom.myVec[r][c] = myVec[r][c];
+        }
+    }
+    Matrix<Item> top(3, 3);
+    for(Item r = 0 ; r < 3 ; r++){
+            top.myVec[r][0] = myVec[r][0];
+    }
+    for(Item r = 0 ; r < 3 ; r++){
+        top.myVec[r][1] = myVec[r][3];
+    }
+    for(Item r = 0 ; r < 3 ; r++){
+        top.myVec[r][2] = myVec[r][2];
+    }
 
+    if(bottom.getDeterminantTriple() == 0){return 0;}
+
+    return top.getDeterminantTriple()/bottom.getDeterminantTriple();
 }
 
 template<class Item>
 Item Matrix<Item>::getZ() const{
+    Matrix<Item> bottom(3, 3);
+    for(Item r = 0 ; r < 3 ; r++){
+        for(Item c = 0 ; c < 3 ; c++){
+            bottom.myVec[r][c] = myVec[r][c];
+        }
+    }
+    Matrix<Item> top(3, 3);
+    for(Item r = 0 ; r < 3 ; r++){
+        for(Item c = 0 ; c < 2 ; c++){
+            top.myVec[r][c] = myVec[r][c];
+        }
+    }
+    for(Item r = 0 ; r < 3 ; r++){
+        top.myVec[r][2] = myVec[r][3];
+    }
 
+    if(bottom.getDeterminantTriple() == 0){return 0;}
+
+    return top.getDeterminantTriple()/bottom.getDeterminantTriple();
 }
 
 #endif

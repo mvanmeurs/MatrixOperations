@@ -14,7 +14,7 @@ public:
    MatrixTester();
    void testDoubleMatrix();
    void testTripleMatrix();
-   void testGetX();
+   void testGetXYZ();
 };
 
 

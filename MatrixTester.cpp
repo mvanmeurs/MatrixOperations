@@ -10,7 +10,7 @@ MatrixTester::MatrixTester(){
     cout << "Testing Class Matrix..." << endl;
     testDoubleMatrix();
     testTripleMatrix();
-    testGetX();
+    testGetXYZ();
     cout << "All tests passed!" << endl;
 }
 
@@ -49,9 +49,9 @@ void MatrixTester::testDoubleMatrix(){
         }
     }
     assert(m1.getDeterminantDouble() == -2);
-    cout << " 3 " << endl;
+    cout << " 3 " << flush;
 
-    cout << "Passed!" << flush;
+    cout << "Passed!" << endl;
 }
 
 void MatrixTester::testTripleMatrix(){
@@ -90,9 +90,40 @@ void MatrixTester::testTripleMatrix(){
     cout << "Passed!" << endl;
 }
 
-void MatrixTester::testGetX(){
-    cout << "Testing getX()..." << flush;
+void MatrixTester::testGetXYZ(){
+    cout << "Testing getXYZ()..." << flush;
     Matrix<int> m(3, 4);
+
+    for(int r = 0 ; r < 3 ; r++){
+        for(int c = 0 ; c < 4 ; c++){
+            m.myVec[r][c] = 0;
+        }
+    }
+
+    assert(m.getX() == 0);
+    cout << " 0a " << flush;
+
+    assert(m.getY() == 0);
+    cout << " 0b " << flush;
+
+    assert(m.getZ() == 0);
+    cout << " 0c " << flush;
+
+    for(int r = 0 ; r < 3 ; r++){
+        for(int c = 0 ; c < 4 ; c++){
+            m.myVec[r][c] = 1;
+        }
+    }
+
+    assert(m.getX() == 0);
+    cout << " 1a " << flush;
+
+    assert(m.getY() == 0);
+    cout << " 1b " << flush;
+
+    assert(m.getZ() == 0);
+    cout << " 1c " << flush;
+
     int a = 1;
     for(int r = 0 ; r < 2 ; r++){
         for(int c = 0 ; c < 4 ; c++){
@@ -106,7 +137,20 @@ void MatrixTester::testGetX(){
     m.myVec[2][3] = 12;
 
     assert(m.getX() == -1);
-    cout << " 0 " << flush;
+    cout << " 2a " << flush;
+
+    assert(m.getY() == 1);
+    cout << " 2b " << flush;
+
+    assert(m.getZ() == 1);
+    cout << " 2c " << flush;
 
     cout << "Passed!" << endl;
+
+    for(int r = 0 ; r < 3 ; r++){
+        for(int c = 0 ; c < 4 ; c++){
+            m.myVec[r][c] = 1;
+        }
+    }
+
 }
