@@ -12,6 +12,7 @@ MatrixTester::MatrixTester(){
     cout << endl;
     testTripleMatrix();
     cout << endl;
+    testGetX();
     cout << "All tests passed!" << endl;
 }
 
@@ -77,6 +78,34 @@ void MatrixTester::testTripleMatrix(){
 
     assert(m1.getDeterminantTriple() == -504);
     cout << " 3 " << flush;
+
+    cout << "Passed!" << flush;
+}
+
+void MatrixTester::testGetX(){
+    Matrix<unsigned> m(3, 4);
+    unsigned a = 1;
+    for(unsigned r = 0 ; r < 2 ; r++){
+        for(unsigned c = 0 ; c < 4 ; c++){
+            m.myVec[r][c] = a;
+            a++;
+        }
+    }
+    m.myVec[2][0] = 0;
+    m.myVec[2][1] = 0;
+    m.myVec[2][2] = 12;
+    m.myVec[2][3] = 12;
+
+    for(unsigned r = 0 ; r < 3 ; r++){
+        for(unsigned c = 0 ; c < 4 ; c++){
+            cout << m.myVec[r][c] << " " << flush;
+        }
+    }
+
+    cout << m.getX() << flush;
+
+    assert(m.getX() == -1);
+    cout << " 0 " << flush;
 
     cout << "Passed!" << flush;
 }

@@ -37,6 +37,9 @@ public:
 	void toString() const;
     Item getDeterminantTriple() const;
 	Item getDeterminantDouble() const;
+    Item getX() const;
+    Item getY() const;
+    Item getZ() const;
 private:
 	unsigned myRows;
 	unsigned myColumns;
@@ -314,6 +317,36 @@ Item Matrix<Item>::getDeterminantTriple() const{
 template<class Item>
 Item Matrix<Item>::getDeterminantDouble() const{
 	return (myVec[0][0]*myVec[1][1]) - (myVec[0][1]*myVec[1][0]);
+}
+
+template<class Item>
+Item Matrix<Item>::getX() const{
+    Matrix<Item> det(3, 3);
+    for(unsigned r = 0 ; r < 3 ; r++){
+        for(unsigned c = 0 ; c < 3 ; c++){
+            det.myVec[r][c] = myVec[r][c];
+        }
+    }
+    Matrix<Item> top(3, 3);
+    for(unsigned r = 0 ; r < 3 ; r++){
+        for(unsigned c = 0 ; c < 3 ; c++){
+            top.myVec[r][c] = myVec[r][c];
+        }
+    }
+    for(unsigned r = 0 ; r < 3 ; r++){
+        top.myVec[r][0] = myVec[r][3];
+    }
+    return top.getDeterminantTriple()/det.getDeterminantTriple();
+}
+
+template<class Item>
+Item Matrix<Item>::getY() const{
+
+}
+
+template<class Item>
+Item Matrix<Item>::getZ() const{
+
 }
 
 #endif
