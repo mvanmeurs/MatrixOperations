@@ -35,8 +35,8 @@ public:
 	Matrix<Item> operator*(const Matrix<Item>&) const;
 	Matrix<Item> getTranspose() const;
 	void toString() const;
-    Item getDeterminantTriple(const Matrix<Item>&) const;
-	Item getDeterminantDouble(const Matrix<Item>&) const;
+    Item getDeterminantTriple() const;
+	Item getDeterminantDouble() const;
 private:
 	unsigned myRows;
 	unsigned myColumns;
@@ -286,34 +286,34 @@ void Matrix<Item>::toString() const{
 }
 
 template<class Item>
-Item Matrix<Item>::getDeterminantTriple(const Matrix<Item>& matrix) const{
+Item Matrix<Item>::getDeterminantTriple() const{
     Matrix<Item> m1(2, 2);
     Matrix<Item> m2(2, 2);
     Matrix<Item> m3(2, 2);
 
     for(unsigned r = 0 ; r < 2 ; r++){
         for(unsigned c = 0 ; c < 2 ; ){
-            m1[r][c] = matrix[r+1][c+1];
+            m1[r][c] = myVec[r+1][c+1];
         }
     }
 
-    m2[0][0] = matrix[1][0];
-    m2[0][1] = matrix[1][2];
-    m2[1][0] = matrix[2][0];
-    m2[1][1] = matrix[2][2];
+    m2[0][0] = myVec[1][0];
+    m2[0][1] = myVec[1][2];
+    m2[1][0] = myVec[2][0];
+    m2[1][1] = myVec[2][2];
 
     for(unsigned r = 0 ; r < 2 ; r++){
         for(unsigned c = 0 ; c < 2 ; ){
-            m3[r][c] = matrix[r+1][c];
+            m3[r][c] = myVec[r+1][c];
         }
     }
 
-    return (matrix[0][0]*m1.getDeterminantDouble(m1)) - (matrix[0][1]*m2.getDeterminantDouble(m2)) + (matrix[0][2]*m3.getDeterminantDouble(m3));
+    return (myVec[0][0]*m1.getDeterminantDouble()) - (myVec[0][1]*m2.getDeterminantDouble()) + (myVec[0][2]*m3.getDeterminantDouble());
 }
 
 template<class Item>
-Item Matrix<Item>::getDeterminantDouble(const Matrix<Item>& matrix) const{
-	return (matrix[0][0]*matrix[1][1]) - (matrix[0][1]*matrix[1][0]);
+Item Matrix<Item>::getDeterminantDouble() const{
+	return (myVec[0][0]*myVec[1][1]) - (myVec[0][1]*myVec[1][0]);
 }
 
 #endif
