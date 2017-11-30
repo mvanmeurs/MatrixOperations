@@ -1,6 +1,7 @@
 Throw an exception:
     -Item is defined as unsigned exception
     combine get variable methods
+    invalid variable exception
 methods:
     cross product
     dot product

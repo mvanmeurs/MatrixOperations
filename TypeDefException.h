@@ -1,10 +1,10 @@
-/* MatrixDimensionException.h models exceptions in Matrix Operations.
+/* TypeDefException.h models exceptions in Matrix Operations.
  * Joel Adams, for CS 112 at Calvin College.
  * Modified by: Mason VanMeurs
  */
 
-#ifndef STACK_EXCEPTION
-#define STACK_EXCEPTION
+#ifndef TYPEDEF_EXCEPTION
+#define TYPEDEF_EXCEPTION
 
 #include <iostream>
 using namespace std;

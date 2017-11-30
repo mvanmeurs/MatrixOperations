@@ -11,9 +11,12 @@
 #ifndef MATRIX_H_
 #define MATRIX_H_
 
+#include <cstdlib>
+
 #include "Vec.h"
 #include "MatrixDimensionException.h"
 #include "TypeDefException.h"
+#include "VariableException.h"
 
 using namespace std;
 
@@ -39,15 +42,16 @@ public:
 	Matrix<Item> getTranspose() const;
 	void toString() const;
     Item getDeterminant() const;
-    Item getX() const;
-    Item getY() const;
-    Item getZ() const;
+    Item getVariable(const char&) const;
 private:
 	unsigned myRows;
 	unsigned myColumns;
 	Vec< Vec<Item> > myVec;
     Item getDeterminantTriple() const;
     Item getDeterminantDouble() const;
+    Item getX() const;
+    Item getY() const;
+    Item getZ() const;
 	friend class MatrixTester;
 };
 
@@ -336,6 +340,13 @@ Item Matrix<Item>::getDeterminantTriple() const{
 template<class Item>
 Item Matrix<Item>::getDeterminantDouble() const{
     return (myVec[0][0]*myVec[1][1]) - (myVec[1][0]*myVec[0][1]);
+}
+template<class Item>
+Item Matrix<Item>::getVariable(const char& var) const{
+    if(tolower(var) == 'x'){return getX();}
+    else if(tolower(var) == 'y'){return getY();}
+    else if(tolower(var) == 'z'){return getZ();}
+    else{throw VariableException("getVariable: ", "variable must be x, y, or z");};
 }
 
 template<class Item>

@@ -1,24 +1,24 @@
-/* MatrixDimensionException.h models exceptions in Matrix Operations.
+/* VariableException.h models exceptions in Matrix Operations.
  * Joel Adams, for CS 112 at Calvin College.
  * Modified by: Mason VanMeurs
  */
 
-#ifndef MATRIX_DIMENSION_EXCEPTION
-#define MATRIX_DIMENSION_EXCEPTION
+#ifndef VARIABLE_EXCEPTION
+#define VARIABLE_EXCEPTION
 
 #include <iostream>
 using namespace std;
 
  
-class MatrixDimensionException {
+class VariableException {
 public:
-   MatrixDimensionException(const string& whereThrown, const string& message) {
+   VariableException(const string& whereThrown, const string& message) {
        myLocation = whereThrown; 
        myMessage = message; 
    }
 
    string asString() const {
-       return "*** Matrix Dimension Exception in " +
+       return "*** TypeDef Exception in " +
                myLocation + ": " + myMessage; 
    }
 
@@ -28,7 +28,7 @@ private:
 };
 
 
-/* Function to allow a MatrixDimensionsException (or a subclass) to be displayed
+/* Function to allow a VariableException (or a subclass) to be displayed
  * via an ostream.
  * Parameters: out, an ostream;
  *             se, a StackException.
@@ -36,8 +36,8 @@ private:
  * into out
  *             && return-value == out.
  */
-inline ostream& operator<<(ostream& out, const MatrixDimensionException& mde) {
-      out << mde.asString();
+inline ostream& operator<<(ostream& out, const VariableException& ve) {
+      out << ve.asString();
       return out;
 }
 
