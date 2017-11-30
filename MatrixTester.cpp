@@ -14,6 +14,7 @@ MatrixTester::MatrixTester(){
     testGetXYZ();
     testGetVariable();
     testGetDotProduct();
+    testScaleBy();
     cout << "All tests passed!" << endl;
 }
 
@@ -371,6 +372,44 @@ void MatrixTester::testGetDotProduct(){
 
     assert(m7.getDotProduct(m8) == 50);
     cout << " 5 " << flush;
+
+    cout << " Passed!" << endl;
+}
+
+void MatrixTester::testScaleBy(){
+    cout << "Testing scaleBy..." << flush;
+
+    Vec<int> v1(3);
+    for(int i = 0 ; i < 3 ; i++){
+        v1.myArray[i] = 0;
+    }
+    v1.scaleBy(6);
+    for(int i = 0 ; i < 3 ; i++){
+        assert(v1.myArray[i] == 0);
+    }
+    cout << " 0a " << flush;
+
+    int a = 1;
+    for(unsigned i = 0 ; i < 3 ; i++){
+        v1.myArray[i] = a;
+        a++;
+    }
+    v1.scaleBy(0);
+
+    for(unsigned i = 0 ; i < 3 ; i++){
+        assert(v1.myArray[i] == 0);
+    }
+    cout << " 0b " << flush;
+
+    a = 1;
+    for(unsigned i = 0 ; i < 3 ; i++){
+        v1.myArray[i] = a;
+        a*=2;
+    }
+    assert(v1.myArray[0] == 1);
+    assert(v1.myArray[1] == 2);
+    assert(v1.myArray[2] == 4);
+    cout << " 1 " << flush;
 
     cout << " Passed!" << endl;
 }

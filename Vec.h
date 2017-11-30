@@ -42,6 +42,7 @@ public:
 	Item& operator[](unsigned);
 	const Item& operator[](unsigned) const;
 	Item getDotProduct(const Vec<Item>&) const;
+	void scaleBy(const Item&);
 private:
 	unsigned mySize;
 	Item* myArray;
@@ -379,6 +380,13 @@ Item Vec<Item>::getDotProduct(const Vec<Item>& rhs) const{
 		sum += (myArray[i]*rhs.myArray[i]);
 	}
 	return sum;
+}
+
+template<class Item>
+void Vec<Item>::scaleBy(const Item& scalar){
+	for(unsigned i = 0 ; i < mySize ; i++){
+		myArray[i] = myArray[i]*scalar;
+	}
 }
 
 #endif /*VEC_H_*/

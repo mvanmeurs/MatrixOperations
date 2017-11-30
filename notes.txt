@@ -3,4 +3,4 @@ Throw an exception:
     -dot product isn't same size
 methods:
     cross product
-    dot product
+        scaleBy(Item)

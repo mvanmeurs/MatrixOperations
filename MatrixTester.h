@@ -18,6 +18,7 @@ public:
     void testGetXYZ();
     void testGetVariable();
     void testGetDotProduct();
+    void testScaleBy();
 };
 
 
