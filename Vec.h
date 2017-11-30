@@ -1,6 +1,6 @@
 /* Vec.h provides a simple vector class named Vec.
- * Student Name:
- * Date:
+ * Student Name: Mason VanMeurs
+ * Date: 11/30/17
  * Begun by: Joel C. Adams, for CS 112 at Calvin College.
  */
 
@@ -43,6 +43,7 @@ public:
 	const Item& operator[](unsigned) const;
 	Item getDotProduct(const Vec<Item>&) const;
 	void scaleBy(const Item&);
+    void toString() const;
 private:
 	unsigned mySize;
 	Item* myArray;
@@ -361,7 +362,6 @@ double Vec<Item>::operator*(const Vec<Item>& v2){
 	if(v2.mySize != mySize){
 		throw invalid_argument("Vectors aren't the same size.");
 	} else {
-		Vec newvec(mySize);
 		double product = 0;
 		for (unsigned i = 0; i < mySize; i++) {
 			product += (myArray[i] * v2.myArray[i]);
@@ -387,6 +387,16 @@ void Vec<Item>::scaleBy(const Item& scalar){
 	for(unsigned i = 0 ; i < mySize ; i++){
 		myArray[i] = myArray[i]*scalar;
 	}
+}
+
+template<class Item>
+void Vec<Item>::toString() const{
+    cout << "<" << flush;
+    for (int i = 0; i < mySize; ++i){
+        cout << myArray[i];
+        if(i<mySize-1){cout << ", " << flush;}
+    }
+    cout << ">" << flush;
 }
 
 #endif /*VEC_H_*/

@@ -19,6 +19,7 @@ public:
     void testGetVariable();
     void testGetDotProduct();
     void testScaleBy();
+    void testVectorString();
 };
 
 

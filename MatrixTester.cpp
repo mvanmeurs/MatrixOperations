@@ -15,6 +15,7 @@ MatrixTester::MatrixTester(){
     testGetVariable();
     testGetDotProduct();
     testScaleBy();
+    testVectorString();
     cout << "All tests passed!" << endl;
 }
 
@@ -412,4 +413,33 @@ void MatrixTester::testScaleBy(){
     cout << " 1 " << flush;
 
     cout << " Passed!" << endl;
+}
+
+void MatrixTester::testVectorString(){
+    cout << "Testing Vec toString..." << flush;
+
+    cout << " (Should be <0, 0, 0> | " << flush;
+    Vec<int> v1(3);
+    for(unsigned i = 0 ; i < 3 ; i++){
+        v1.myArray[i] = 0;
+    }
+    v1.toString();
+
+    cout << ") (Should be <1, 2, 3> | " << flush;
+    int a = 1;
+    for(unsigned i = 0 ; i < 3 ; i++){
+        v1.myArray[i] = a;
+        a++;
+    }
+    v1.toString();
+
+    cout << ") Should be <5, 6, 7> | " << flush;
+    a = 5;
+    for(unsigned i = 0 ; i < 3 ; i++){
+        v1.myArray[i] = a;
+        a++;
+    }
+    v1.toString();
+
+    cout << ") Passed!" << endl;
 }

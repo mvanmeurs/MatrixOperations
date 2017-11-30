@@ -1,6 +1,6 @@
 /* Matrix.h defines Matrix class methods.
  * Student 2 Name: Mason VanMeurs
- * Student 2 methods:operator[], operator==, writeTo(ostream), readFrom(filename), operator-, getTranspose(), toString()
+ * Student 2 methods: Everything Professor Adams didn't do
  * Student 1 Name: Joel Adams
  * Student 1 methods:operator!=, readFrom(istream), writeTo(filename), operator+
  * Date:10/3/17
