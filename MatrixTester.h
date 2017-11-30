@@ -11,10 +11,11 @@ using namespace std;
 
 class MatrixTester {
 public:
-   MatrixTester();
-   void testDoubleMatrix();
-   void testTripleMatrix();
-   void testGetXYZ();
+    MatrixTester();
+    void testDoubleMatrix();
+    void testTripleMatrix();
+    void testGetDeterminant();
+    void testGetXYZ();
 };
 
 

@@ -10,6 +10,7 @@ MatrixTester::MatrixTester(){
     cout << "Testing Class Matrix..." << endl;
     testDoubleMatrix();
     testTripleMatrix();
+    testGetDeterminant();
     testGetXYZ();
     cout << "All tests passed!" << endl;
 }
@@ -88,6 +89,42 @@ void MatrixTester::testTripleMatrix(){
     cout << " 3 " << flush;
 
     cout << "Passed!" << endl;
+}
+
+void MatrixTester::testGetDeterminant(){
+    cout << "Testing getDeterminant..." << flush;
+
+    Matrix<int> m1(4, 5);
+    try{
+        m1.getDeterminant();
+        cerr << "getDeterminant worked on a non 2x2 or 3x3 Matrix" << flush;
+    }catch(MatrixDimensionException& mde){
+        cout << " 0a " << flush;
+    }
+
+    Matrix<int> m2(2, 3);
+    try{
+        m2.getDeterminant();
+        cerr << "getDeterminant worked on a non 2x2 or 3x3 Matrix" << flush;
+    }catch(MatrixDimensionException& mde){
+        cout << " 0b " << flush;
+    }
+    Matrix<int> m3(2, 2);
+    try{
+        m3.getDeterminant();
+        cout << " 0c " << flush;
+    }catch(MatrixDimensionException& mde){
+        cerr << "getDeterminant didn't work on a 2x2 Matrix" << flush;
+    }
+    Matrix<int> m4(3, 3);
+    try{
+        m4.getDeterminant();
+        cout << " 0d " << flush;
+    }catch(MatrixDimensionException& mde){
+        cerr << "getDeterminant didn't work on a 3x3 Matrix" << flush;
+    }
+
+    cout << " Passed!" << endl;
 }
 
 void MatrixTester::testGetXYZ(){

@@ -57,6 +57,7 @@ private:
  */
 template<class Item>
 Matrix<Item>::Matrix() {
+	//if(mytype is unsigned){throw TypeDefException("Matrix: ", "Type can't be unsigned");}
 	myRows = myColumns = 0;
 }
 
@@ -67,6 +68,7 @@ Matrix<Item>::Matrix() {
  */
 template<class Item>
 Matrix<Item>::Matrix(unsigned rows, unsigned columns) {
+	//if(mytype is unsigned){throw TypeDefException("Matrix: ", "Type can't be unsigned");}
 	myRows = rows;
 	myColumns = columns;
 	myVec.setSize(rows);
@@ -294,10 +296,10 @@ void Matrix<Item>::toString() const{
 
 template<class Item>
 Item Matrix<Item>::getDeterminant() const{
-    if(myRows == myColumns == 2){
+    if(myRows == 2 && myColumns == 2){
         return getDeterminantDouble();
     }
-    else if(myRows == myColumns == 3){
+    else if(myRows == 3 && myColumns == 3){
         return getDeterminantTriple();
     }
     else{
