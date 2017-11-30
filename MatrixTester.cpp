@@ -13,6 +13,7 @@ MatrixTester::MatrixTester(){
     testGetDeterminant();
     testGetXYZ();
     testGetVariable();
+    testGetDotProduct();
     cout << "All tests passed!" << endl;
 }
 
@@ -293,6 +294,83 @@ void MatrixTester::testGetVariable(){
     }catch(VariableException& ve){
         cout << " 3 " << flush;
     }
+
+    cout << " Passed!" << endl;
+}
+
+void MatrixTester::testGetDotProduct(){
+    cout << "Testing getDotProduct... " << flush;
+
+    Vec<int> m1(3);
+    for(unsigned i = 0 ; i < 3 ; i++){
+        m1.myArray[i] = 0;
+    }
+    Vec<int> m2(3);
+    for(unsigned i = 0 ; i < 3 ; i++){
+        m2.myArray[i] = 0;
+    }
+    assert(m1.getDotProduct(m2) == 0);
+    cout << " 0a " << flush;
+
+    Vec<int> m3(100);
+    for(unsigned i = 0 ; i < 100 ; i++){
+        m3.myArray[i] = 0;
+    }
+    Vec<int> m4(100);
+    for(unsigned i = 0 ; i < 100 ; i++){
+        m4.myArray[i] = 0;
+    }
+    assert(m3.getDotProduct(m4) == 0);
+    cout << " 0b " << flush;
+
+    Vec<int> m5(3);
+    for(unsigned i = 0 ; i < 3 ; i++){
+        m5.myArray[i] = 0;
+    }
+    Vec<int> m6(5);
+    for(unsigned i = 0 ; i < 5 ; i++){
+        m6.myArray[i] = 0;
+    }
+    try{
+        m5.getDotProduct(m6);
+        cerr << "getDotProduct worked on Vectors of different dimensions" << flush;
+    }catch(MatrixDimensionException& mde){
+        cout << " 1 " << flush;
+    }
+
+    Vec<int> m7(3);
+    int a = 1;
+    for(unsigned i = 0 ; i < 3 ; i++){
+        m7.myArray[i] = a;
+        a++;
+    }
+    Vec<int> m8(3);
+    int b = 3;
+    for(unsigned i = 0 ; i < 3 ; i++){
+        m8.myArray[i] = b;
+        b++;
+    }
+    assert(m7.getDotProduct(m8) == m8.getDotProduct(m7));
+    cout << " 2 " << flush;
+
+    assert(m7.getDotProduct(m8) == 26);
+    cout << " 3 " << flush;
+
+    a = 7;
+    for(unsigned i = 0 ; i < 3 ; i++){
+        m7.myArray[i] = a;
+        a++;
+    }
+    b = 1;
+    for(unsigned i = 0 ; i < 3 ; i++){
+        m8.myArray[i] = b;
+        b++;
+    }
+    assert(m7.getDotProduct(m8) == m8.getDotProduct(m7));
+    cout << " 4 " << flush;
+
+    assert(m7.getDotProduct(m8) == 50);
+    cout << " 5 " << flush;
 
     cout << " Passed!" << endl;
 }

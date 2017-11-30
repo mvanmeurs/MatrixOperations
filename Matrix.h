@@ -43,7 +43,7 @@ public:
 	void toString() const;
     Item getDeterminant() const;
     Item getVariable(const char&) const;
-    Item getDotProduct(const Matrix<Item>&) const;
+    //Item getDotProduct(const Matrix<Item>&) const;
 private:
 	unsigned myRows;
 	unsigned myColumns;
@@ -423,16 +423,16 @@ Item Matrix<Item>::getZ() const{
     return top.getDeterminantTriple()/bottom.getDeterminantTriple();
 }
 
-template<class Item>
-Item Matrix<Item>::getDotProduct(const Matrix<Item>& rhs) const{
-    if(myRows != 1 || rhs.myRows != 1 || myColumns != rhs.myColumns){
-        throw MatrixDimensionException("getDotProduct: ", "Vectors aren't the same dimensions");
-    }
-    Item sum = 0;
-    for(unsigned i = 0 ; i<myColumns ; i++){
-        sum += (myVec[0][i]*rhs.myVec[0][i]);
-    }
-    return sum;
-}
+//template<class Item>
+//Item Matrix<Item>::getDotProduct(const Matrix<Item>& rhs) const{
+//    if(myRows != 1 || rhs.myRows != 1 || myColumns != rhs.myColumns){
+//        throw MatrixDimensionException("getDotProduct: ", "Vectors aren't the same dimensions");
+//    }
+//    Item sum = 0;
+//    for(unsigned i = 0 ; i<myColumns ; i++){
+//        sum += (myVec[0][i]*rhs.myVec[0][i]);
+//    }
+//    return sum;
+//}
 
 #endif

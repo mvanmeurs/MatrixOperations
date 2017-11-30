@@ -17,6 +17,7 @@ public:
     void testGetDeterminant();
     void testGetXYZ();
     void testGetVariable();
+    void testGetDotProduct();
 };
 
 

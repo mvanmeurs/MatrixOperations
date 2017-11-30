@@ -13,6 +13,8 @@
 #include <fstream>
 #include <cassert>
 
+#include "MatrixDimensionException.h"
+
 using namespace std;
 
 template<class Item>
@@ -39,10 +41,12 @@ public:
 	double operator*(const Vec<Item>&);
 	Item& operator[](unsigned);
 	const Item& operator[](unsigned) const;
+	Item getDotProduct(const Vec<Item>&) const;
 private:
 	unsigned mySize;
 	Item* myArray;
 	friend class VecTester;
+	friend class MatrixTester;
 };
 
 /* Vec default constructor
@@ -363,6 +367,18 @@ double Vec<Item>::operator*(const Vec<Item>& v2){
 		}
 		return product;
 	}
+}
+
+template<class Item>
+Item Vec<Item>::getDotProduct(const Vec<Item>& rhs) const{
+	if(mySize != rhs.mySize){
+        throw MatrixDimensionException("getDotProduct: ", "Vectors aren't the same dimensions");
+    }
+	Item sum = 0;
+	for(unsigned i = 0 ; i < mySize ; i++){
+		sum += (myArray[i]*rhs.myArray[i]);
+	}
+	return sum;
 }
 
 #endif /*VEC_H_*/
