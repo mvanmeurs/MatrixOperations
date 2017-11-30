@@ -16,6 +16,7 @@ public:
     void testTripleMatrix();
     void testGetDeterminant();
     void testGetXYZ();
+    void testGetVariable();
 };
 
 

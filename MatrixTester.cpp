@@ -12,6 +12,7 @@ MatrixTester::MatrixTester(){
     testTripleMatrix();
     testGetDeterminant();
     testGetXYZ();
+    testGetVariable();
     cout << "All tests passed!" << endl;
 }
 
@@ -223,4 +224,75 @@ void MatrixTester::testGetXYZ(){
         }
     }
 
+}
+
+void MatrixTester::testGetVariable(){
+    cout << "Testing getVariable... " << flush;
+
+    Matrix<int> m1(3, 4);
+
+    try{
+        m1.getVariable('x');
+        cout << " 0a " << flush;
+    }catch(VariableException& ve){
+        cerr << "getVariable didn't work on an invalid variable name" << flush;
+    }
+
+    try{
+        m1.getVariable('y');
+        cout << " 0b " << flush;
+    }catch(VariableException& ve){
+        cerr << "getVariable didn't work on an invalid variable name" << flush;
+    }
+
+    try{
+        m1.getVariable('z');
+        cout << " 0c " << flush;
+    }catch(VariableException& ve){
+        cerr << "getVariable didn't work on an invalid variable name" << flush;
+    }
+
+    try{
+        m1.getVariable('X');
+        cout << " 0d " << flush;
+    }catch(VariableException& ve){
+        cerr << "getVariable didn't work on an invalid variable name" << flush;
+    }
+
+    try{
+        m1.getVariable('Y');
+        cout << " 0e " << flush;
+    }catch(VariableException& ve){
+        cerr << "getVariable didn't work on an invalid variable name" << flush;
+    }
+
+    try{
+        m1.getVariable('Z');
+        cout << " 0f " << flush;
+    }catch(VariableException& ve){
+        cerr << "getVariable didn't work on an invalid variable name" << flush;
+    }
+
+    try{
+        m1.getVariable('r');
+        cerr << "getVariable worked on an invalid variable name" << flush;
+    }catch(VariableException& ve){
+        cout << " 1 " << flush;
+    }
+
+    try{
+        m1.getVariable('o');
+        cerr << "getVariable worked on an invalid variable name" << flush;
+    }catch(VariableException& ve){
+        cout << " 2 " << flush;
+    }
+
+    try{
+        m1.getVariable('W');
+        cerr << "getVariable worked on an invalid variable name" << flush;
+    }catch(VariableException& ve){
+        cout << " 3 " << flush;
+    }
+
+    cout << " Passed!" << endl;
 }
