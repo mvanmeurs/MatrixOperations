@@ -124,6 +124,39 @@ void MatrixTester::testGetDeterminant(){
         cerr << "getDeterminant didn't work on a 3x3 Matrix" << flush;
     }
 
+    unsigned a = 1;
+    for(unsigned r = 0 ; r < 2 ; r++){
+        for(unsigned c = 0 ; c < 2 ; c++){
+            m3.myVec[r][c] = a;
+            a++;
+        }
+    }
+    assert(m3.getDeterminant() == -2);
+    cout << " 1 " << flush;
+
+    for(unsigned r = 0 ; r < 2 ; r++){
+        for(unsigned c = 0 ; c < 2 ; c++){
+            m3.myVec[r][c] = (r+1)*(c+1);
+        }
+    }
+    assert(m3.getDeterminantDouble() == 0);
+    cout << " 2 " << flush;
+
+    Matrix<int> m5(3, 3);
+    for(unsigned r = 0 ; r < 3 ; r++){
+        for(unsigned c = 0 ; c < 3 ; c++){
+            m5.myVec[r][c] = (r+3)*(c+1);
+        }
+    }
+    assert(m5.getDeterminant() == 0);
+    cout << " 3 " << flush;
+
+    m5.myVec[0][0] = 9;
+    m5.myVec[2][1] = 17;
+
+    assert(m5.getDeterminant() == -504);
+    cout << " 4 " << flush;
+
     cout << " Passed!" << endl;
 }
 
