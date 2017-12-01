@@ -42,7 +42,7 @@ public:
 	Item& operator[](unsigned);
 	const Item& operator[](unsigned) const;
 	Item getDotProduct(const Vec<Item>&) const;
-	void scaleBy(const Item&);
+	void scaleBy(const double&);
     void toString() const;
 	Vec<Item> getCrossProduct(const Vec<Item>&) const;
 private:
@@ -69,6 +69,7 @@ Vec<Item>::Vec() {
  */
 template<class Item>
 Vec<Item>::Vec(unsigned size){
+    //if(size == 0){throw MatrixDimensionException("Vec()", "Can't make Vec of Size 0");}
 	mySize = size;
 	if(size>0){
 		myArray = new Item[mySize];
@@ -385,7 +386,7 @@ Item Vec<Item>::getDotProduct(const Vec<Item>& rhs) const{
 }
 
 template<class Item>
-void Vec<Item>::scaleBy(const Item& scalar){
+void Vec<Item>::scaleBy(const double& scalar){
 	for(unsigned i = 0 ; i < mySize ; i++){
 		myArray[i] = myArray[i]*scalar;
 	}
@@ -401,37 +402,41 @@ void Vec<Item>::toString() const{
     cout << ">" << flush;
 }
 
-/*template<class Item>
+template<class Item>
 Vec<Item> Vec<Item>::getCrossProduct(const Vec<Item>& rhs) const{
 	if(mySize != rhs.mySize || mySize!=3 || rhs.mySize != 3){
 		throw MatrixDimensionException("getCrossProduct: ", "both Vectors must be of size 3");
 	}
+//    else if(mySize == 0 || rhs.mySize == 0){
+//        throw MatrixDimensionException("getCrossProduct: ", "both Vectors must be of size 3");
+//    }
 
-	Matrix m1(2, 2);
-	m1[0][0] = myArray[1];
-	m1[0][1] = myArray[2];
-	m1[1][0] = rhs.myArray[1];
-	m1[1][1] = rhs.myArray[2];
-
-	Matrix m2(2, 2);
-	m2[0][0] = myArray[0];
-	m2[0][1] = myArray[2];
-	m2[1][0] = rhs.myArray[0];
-	m2[1][1] = rhs.myArray[2];
-
-	Matrix m3(2, 2);
-	m3[0][0] = myArray[0];
-	m3[0][1] = myArray[1];
-	m3[1][0] = rhs.myArray[0];
-	m3[1][1] = rhs.myArray[1];
+//	Matrix m1(2, 2);
+//	m1[0][0] = myArray[1];
+//	m1[0][1] = myArray[2];
+//	m1[1][0] = rhs.myArray[1];
+//	m1[1][1] = rhs.myArray[2];
+//
+//	Matrix m2(2, 2);
+//	m2[0][0] = myArray[0];
+//	m2[0][1] = myArray[2];
+//	m2[1][0] = rhs.myArray[0];
+//	m2[1][1] = rhs.myArray[2];
+//
+//	Matrix m3(2, 2);
+//	m3[0][0] = myArray[0];
+//	m3[0][1] = myArray[1];
+//	m3[1][0] = rhs.myArray[0];
+//	m3[1][1] = rhs.myArray[1];
 
 	Vec newvec(mySize);
-	newvec[0] = m1.getDeterminant();
-	newvec[1] = -1*m2.getDeterminant();
-	newvec[2] = m3.getDeterminant();
+
+    newvec[0] = (myArray[1]*rhs.myArray[2]) - (myArray[2]*rhs.myArray[1]);
+    newvec[1] = -1*((myArray[0]*rhs.myArray[2]) - (myArray[2]*rhs.myArray[0]));
+    newvec[2] = (myArray[0]*rhs.myArray[1]) - (myArray[1]*rhs.myArray[0]);
 
 	return newvec;
 
-}*/
+}
 
 #endif /*VEC_H_*/

@@ -2,5 +2,10 @@ Throw an exception:
     -Item is defined as unsigned exception
     -dot product isn't same size
 methods:
-    cross product
+    move scan methods into Matrix.h and Vec.h and combine into .scan method
+    redefine cross product to not be in terms of getDeterminate
     test files in folder
+
+    try and catch statements in Calculator to catch errors
+
+    operator << for functions?

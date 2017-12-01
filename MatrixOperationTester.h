@@ -20,6 +20,7 @@ public:
     void testGetDotProduct();
     void testScaleBy();
     void testVectorString();
+    void testVectorGetCrossProduct();
 };
 
 

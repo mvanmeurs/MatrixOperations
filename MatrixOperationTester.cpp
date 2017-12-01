@@ -16,6 +16,7 @@ MatrixOperationTester::MatrixOperationTester(){
     testGetDotProduct();
     testScaleBy();
     testVectorString();
+    testVectorGetCrossProduct();
     cout << "All tests passed!" << endl;
 }
 
@@ -442,4 +443,40 @@ void MatrixOperationTester::testVectorString(){
     v1.toString();
 
     cout << ") Passed!" << endl;
+}
+
+void MatrixOperationTester::testVectorGetCrossProduct(){
+    cout << "Testing Vec getCrossProduct..." << flush;
+    Vec<int> v1(3);
+    Vec<int> v2(4);
+    try{
+        v1.getDotProduct(v2);
+        cerr << "getDotProduct worked on Vecs of different size" << flush;
+    }catch(MatrixDimensionException& mde){
+        cout << " 0a " << flush;
+    }
+
+    Vec<int> v3(3);
+    Vec<int> v4(3);
+
+    int a = 1;
+    int b = 3;
+    for(unsigned i = 0 ; i < 3 ; i++){
+        v3[i] = a;
+        v4[i] = b;
+        a++;
+        b--;
+    }
+    Vec<int> result(3);
+    result[0] = -4;
+    result[1] = 8;
+    result[2] = -4;
+    assert(v3.getCrossProduct(v4) == result);
+    cout << " 1 " << flush;
+
+    result.scaleBy(-1);
+    assert(v4.getCrossProduct(v3) == result);
+    cout << " 2 " << flush;
+
+    cout << " Passed!" << endl;
 }

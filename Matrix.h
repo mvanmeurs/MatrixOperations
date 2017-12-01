@@ -75,6 +75,7 @@ Matrix<Item>::Matrix() {
  */
 template<class Item>
 Matrix<Item>::Matrix(unsigned rows, unsigned columns) {
+    //if(rows == 0 || columns == 0){throw MatrixDimensionException("Matrix()", "matrix dimensions must both be larger than 0");}
 	//if(mytype is unsigned){throw TypeDefException("Matrix: ", "Type can't be unsigned");}
 	myRows = rows;
 	myColumns = columns;

@@ -10,11 +10,8 @@
 
 class MatrixCalculator {
     MatrixCalculator();
-    void scanVariableMatrix(Matrix<double>&);
-    void scanTripleMatrix(Matrix<double>&);
-    void scanDoubleMatrix(Matrix<double>&);
+    void scanMatrix(Matrix<double>& matrix);
     void scanVector(Vec<double>&);
-
     void printOptions() const;
 };
 
