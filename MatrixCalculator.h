@@ -6,9 +6,16 @@
 #define MATRIXOPERATIONS_MATRIXCALCULATOR_H
 
 
+#include "Matrix.h"
+
 class MatrixCalculator {
     MatrixCalculator();
-    void scanTripleMatrix();
+    void scanVariableMatrix(Matrix<double>&);
+    void scanTripleMatrix(Matrix<double>&);
+    void scanDoubleMatrix(Matrix<double>&);
+    void scanVector(Vec<double>&);
+
+    void printOptions() const;
 };
 
 
