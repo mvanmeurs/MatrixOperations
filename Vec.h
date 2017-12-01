@@ -44,6 +44,7 @@ public:
 	Item getDotProduct(const Vec<Item>&) const;
 	void scaleBy(const Item&);
     void toString() const;
+	Vec<Item> getCrossProduct(const Vec<Item>&) const;
 private:
 	unsigned mySize;
 	Item* myArray;
@@ -399,5 +400,38 @@ void Vec<Item>::toString() const{
     }
     cout << ">" << flush;
 }
+
+/*template<class Item>
+Vec<Item> Vec<Item>::getCrossProduct(const Vec<Item>& rhs) const{
+	if(mySize != rhs.mySize || mySize!=3 || rhs.mySize != 3){
+		throw MatrixDimensionException("getCrossProduct: ", "both Vectors must be of size 3");
+	}
+
+	Matrix m1(2, 2);
+	m1[0][0] = myArray[1];
+	m1[0][1] = myArray[2];
+	m1[1][0] = rhs.myArray[1];
+	m1[1][1] = rhs.myArray[2];
+
+	Matrix m2(2, 2);
+	m2[0][0] = myArray[0];
+	m2[0][1] = myArray[2];
+	m2[1][0] = rhs.myArray[0];
+	m2[1][1] = rhs.myArray[2];
+
+	Matrix m3(2, 2);
+	m3[0][0] = myArray[0];
+	m3[0][1] = myArray[1];
+	m3[1][0] = rhs.myArray[0];
+	m3[1][1] = rhs.myArray[1];
+
+	Vec newvec(mySize);
+	newvec[0] = m1.getDeterminant();
+	newvec[1] = -1*m2.getDeterminant();
+	newvec[2] = m3.getDeterminant();
+
+	return newvec;
+
+}*/
 
 #endif /*VEC_H_*/

@@ -3,3 +3,4 @@ Throw an exception:
     -dot product isn't same size
 methods:
     cross product
+    test files in folder
