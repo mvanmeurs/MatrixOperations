@@ -49,6 +49,7 @@ private:
 	Item* myArray;
 	friend class VecTester;
 	friend class MatrixTester;
+	friend class MatrixOperationTester;
 };
 
 /* Vec default constructor
@@ -329,6 +330,7 @@ Vec<Item> Vec<Item>::operator+(const Vec<Item>& v2){
 		throw invalid_argument("Vectors aren't the same size.");
 	}else{
 		Vec newvec(mySize);
+        cout << " mySize:" << mySize << endl;
 		for(unsigned i = 0 ; i<mySize ; i++){
 			newvec.myArray[i] = (myArray[i] + v2.myArray[i]);
 		}

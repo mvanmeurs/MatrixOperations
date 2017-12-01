@@ -44,6 +44,7 @@ public:
     Item getDeterminant() const;
     Item getVariable(const char&) const;
     //Item getDotProduct(const Matrix<Item>&) const;
+	Vec<Item> getCrossProduct() const;
 private:
 	unsigned myRows;
 	unsigned myColumns;
@@ -54,6 +55,7 @@ private:
     Item getY() const;
     Item getZ() const;
 	friend class MatrixTester;
+    friend class MatrixOperationTester;
 };
 
 /* Default Constructor
@@ -434,5 +436,10 @@ Item Matrix<Item>::getZ() const{
 //    }
 //    return sum;
 //}
+
+template<class Item>
+Vec<Item> Matrix<Item>::getCrossProduct() const{
+
+}
 
 #endif

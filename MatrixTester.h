@@ -1,26 +1,31 @@
-//
-// Created by mason on 11/28/17.
-//
+/* MatrixTester.h declares test-methods for class Matrix.
+ * Joel C. Adams, for CS 112 at Calvin College.
+ */
+ 
+#ifndef MATRIXTESTER_H_
+#define MATRIXTESTER_H_
 
-#ifndef MATRIXOPERATIONS_MATRIXTESTER_H
-#define MATRIXOPERATIONS_MATRIXTESTER_H
 #include "Matrix.h"
-
-using namespace std;
-
 
 class MatrixTester {
 public:
-    MatrixTester();
-    void testDoubleMatrix();
-    void testTripleMatrix();
-    void testGetDeterminant();
-    void testGetXYZ();
-    void testGetVariable();
-    void testGetDotProduct();
-    void testScaleBy();
-    void testVectorString();
+	void runTests();
+	void testDefaultConstructor();
+	void testExplicitConstructor();
+	void testCopyConstructor();
+	void testAssignment();
+	void testEquality();
+	void testInequality();
+	void testSubscripts();
+	void testReadSubscript(const Matrix<double>& mat);
+	void testTranspose();
+	void testAddition();
+	void testSubtraction();
+	void testMultiply();
+	void testReadFromStream();
+	void testReadFromFile();
+	void testWriteToStream();
+	void testWriteToFile();
 };
 
-
-#endif //MATRIXOPERATIONS_MATRIXTESTER_H
+#endif /*MATRIXTESTER_H_*/
