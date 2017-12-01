@@ -8,8 +8,8 @@ using namespace std;
 int main() {
     VecTester vc;
     vc.runTests();
-//    MatrixTester mt;
-//    mt.runTests();
-//    MatrixOperationTester mot;
+    MatrixTester mt;
+    mt.runTests();
+    MatrixOperationTester mot;
     return 0;
 }
