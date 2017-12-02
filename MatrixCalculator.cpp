@@ -3,6 +3,7 @@
 //
 
 #include "MatrixCalculator.h"
+#include <locale>
 
 using namespace std;
 
@@ -11,100 +12,132 @@ MatrixCalculator::MatrixCalculator(){
     cout << endl;
     printOptions();
 
-    unsigned user = 0;
-    cin >> user;
+    unsigned main;
 
     //main loop
     while(true){
+        cin >> main;
         //3x4 matrix
-        if(user == 1){
+        if(main == 1){
             Matrix<double> m1(3, 4);
             scanMatrix(m1);
 
+            cout << "Press 0 to quit" << endl;
+            cout << "Please enter the variable you wish to solve for:" << endl;
+            char variable;
+
+            //variable
+            while(true){
+                cin >> variable;
+                //x
+                if(tolower(variable) == 'x'){
+
+                }
+                //y
+                else if(tolower(variable) == 'y'){
+
+                }
+                //z
+                else if(tolower(variable) == 'z'){
+
+                }
+                //quit
+                else if(variable == '0'){break;}
+                else{
+                    cerr << "Please enter either x, y, or z" << endl;
+                }
+            }
+
         }
         //determinant
-        else if(user == 2) {
+        else if(main == 2) {
             cout << "Press 1 to enter your matrix dimensions" << flush;
             cout << "Press 0 to quit" << endl;
 
-            unsigned user;
-            cin >> user;
+            unsigned determinant;
+
             //determinant
             while(true){
+                cin >> determinant;
                 //enter dimensions
-                if(user == 1){
+                if(determinant == 1){
                     cout << "Please enter your square matrix dimension:" << endl;
+
                     unsigned size;
-                    cin >> size;
 
                     //determinant
                     while(true){
-                        //2x2 matrix
-                        if(size == 2){
+
+                        cin >> size;
+                        //matrix
+                        if(size == 2 || size == 3){
                             Matrix<double> m1(size, size);
                             scanMatrix(m1);
-                            cout << "The determinant is: " << m1.getDeterminant() << flush;
+                            cout << "The determinant of:" << endl;
+                            m1.toString();
+                            cout << " is equal to:" << m1.getDeterminant() << flush;
+                            break;
                         }
-                        //3x3 matrix
-                        else if(size == 3){
-                            Matrix<double> m1(size, size);
-                            scanMatrix(m1);
-                            cout << "The determinant is: " << m1.getDeterminant() << flush;
-                        }
-                        //quit
-                        else if(user == 3){break;}
                         //invalid option
                         else{cerr << "Invalid matrix size. Please enter your square matrix dimension:" << endl;}
-                        cin >> size;
                     }
                 }
                 //quit
-                else if(user == 0){break;}
+                else if(determinant == 0){break;}
                 //invalid option
                 else{ cerr << "Invalid option. Please re-enter your option" << flush;}
-                cin >> user;
             }
 
         }
         //dot or cross
-        else if(user == 3){
+        else if(main == 3){
             cout << "Press 1 to calculate the dot product" << endl;
             cout << "Press 2 to calculate the cross product" << endl;
             cout << "Press 0 to quit" << endl;
 
-            unsigned user;
-            cin >> user;
+            unsigned dotcross;
 
             //dot or cross
             while(true){
+                cin >> dotcross;
+                //quit
+                if(dotcross == 0){break;}
+
                 Vec<double> v1(3);
                 Vec<double> v2(3);
                 Vec<double> result(3);
                 scanVector(v1);
                 scanVector(v2);
                 //dot product
-                if(user == 1){
-                    cout << "The dot product is: " << flush;
+                if(dotcross == 1){
+                    v1.toString();
+                    cout << " * " << flush;
+                    v2.toString();
+                    cout << " = " << flush;
                     result = v1.getDotProduct(v2);
                     result.toString();
                 }
                 //cross product
-                else if(user == 2){
-
+                else if(dotcross == 2){
+                    v1.toString();
+                    cout << " * " << flush;
+                    v2.toString();
+                    cout << " = " << flush;
+                    result = v1.getCrossProduct(v2);
+                    result.toString();
                 }
-                //quit
-                else if(user == 0){break;}
                 else{cerr << "Invalid option. Please re-enter your option" << flush;}
-                cin >> user;
             }
         }
+        //volume
+
         //quit
-        else if(user == 0){break;}
-            //invalid option
+        else if(main == 0){break;}
+        //invalid option
         else{cerr << "Invalid option" << endl;}
         printOptions();
-        cin >> user;
     }
+    cout << "Thanks for using the Matrix Operations Class!" << flush;
 }
 
 void MatrixCalculator::printOptions() const {
