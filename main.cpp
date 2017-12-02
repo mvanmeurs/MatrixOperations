@@ -2,6 +2,7 @@
 #include "VecTester.h"
 #include "MatrixTester.h"
 #include "MatrixOperationTester.h"
+#include "MatrixCalculator.h"
 
 using namespace std;
 
@@ -11,5 +12,6 @@ int main() {
     MatrixTester mt;
     mt.runTests();
     MatrixOperationTester mot;
+    MatrixCalculator mc;
     return 0;
 }

@@ -3,7 +3,6 @@
 //
 
 #include "MatrixCalculator.h"
-#include <locale>
 
 using namespace std;
 
@@ -31,7 +30,7 @@ MatrixCalculator::MatrixCalculator(){
                 cin >> variable;
                 //x, y, z
                 if(tolower(variable) == 'x' || tolower(variable) == 'y' || tolower(variable) == 'z'){
-                    cout << variable << " = " << m1.getVariable(variable);
+                    cout << variable << " = " << m1.getVariable(variable) << endl;
                     break;
                 }
                 //quit
@@ -44,7 +43,7 @@ MatrixCalculator::MatrixCalculator(){
         }
         //determinant
         else if(main == 2) {
-            cout << "Press 1 to enter your matrix dimensions" << flush;
+            cout << "Press 1 to enter your matrix dimensions" << endl;
             cout << "Press 0 to quit" << endl;
 
             unsigned determinant;
@@ -66,9 +65,7 @@ MatrixCalculator::MatrixCalculator(){
                         if(size == 2 || size == 3){
                             Matrix<double> m1(size, size);
                             scanMatrix(m1);
-                            cout << "The determinant of:" << endl;
-                            m1.toString();
-                            cout << " is equal to:" << m1.getDeterminant() << flush;
+                            cout << "The determinant is: " << m1.getDeterminant() << flush;
                             break;
                         }
                         //invalid option
@@ -106,19 +103,18 @@ MatrixCalculator::MatrixCalculator(){
                     v1.toString();
                     cout << " * " << flush;
                     v2.toString();
-                    cout << " = " << flush;
-                    result = v1.getDotProduct(v2);
-                    result.toString();
+                    cout << " = " << v1.getDotProduct(v2) << endl;
                     break;
                 }
                 //cross product
                 else if(dotcross == 2){
                     v1.toString();
-                    cout << " * " << flush;
+                    cout << " X " << flush;
                     v2.toString();
                     cout << " = " << flush;
                     result = v1.getCrossProduct(v2);
                     result.toString();
+                    cout << endl;
                     break;
                 }
                 else{cerr << "Invalid option. Please re-enter your option" << flush;}
@@ -139,7 +135,6 @@ MatrixCalculator::MatrixCalculator(){
                     Vec<double> v1(3);
                     Vec<double> v2(3);
                     Vec<double> v3(3);
-                    Vec<double> result(3);
                     scanVector(v1);
                     scanVector(v2);
                     scanVector(v3);
@@ -152,8 +147,7 @@ MatrixCalculator::MatrixCalculator(){
                     v3.toString();
                     cout << " = " << flush;
 
-                    result = v1.getDotProduct(v2.getCrossProduct(v3));
-                    result.toString();
+                    cout << v1.getDotProduct(v2.getCrossProduct(v3)) << endl;
 
                     break;
                 }
@@ -191,6 +185,7 @@ void MatrixCalculator::scanMatrix(Matrix<double>& matrix) {
     }
     cout << "Here is the matrix you entered:" << endl;
     matrix.toString();
+    cout << endl;
 }
 
 void MatrixCalculator::scanVector(Vec<double>& vec){
@@ -200,6 +195,4 @@ void MatrixCalculator::scanVector(Vec<double>& vec){
         cin >> scan;
         vec[i] = scan;
     }
-    cout << "Here is the vector you entered:" << endl;
-    vec.toString();
 }

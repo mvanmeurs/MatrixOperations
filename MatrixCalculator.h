@@ -9,7 +9,9 @@
 #include "Matrix.h"
 
 class MatrixCalculator {
+public:
     MatrixCalculator();
+private:
     void scanMatrix(Matrix<double>& matrix);
     void scanVector(Vec<double>&);
     void printOptions() const;
