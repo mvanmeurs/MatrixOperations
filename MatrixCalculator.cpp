@@ -29,17 +29,10 @@ MatrixCalculator::MatrixCalculator(){
             //variable
             while(true){
                 cin >> variable;
-                //x
-                if(tolower(variable) == 'x'){
-
-                }
-                //y
-                else if(tolower(variable) == 'y'){
-
-                }
-                //z
-                else if(tolower(variable) == 'z'){
-
+                //x, y, z
+                if(tolower(variable) == 'x' || tolower(variable) == 'y' || tolower(variable) == 'z'){
+                    cout << variable << " = " << m1.getVariable(variable);
+                    break;
                 }
                 //quit
                 else if(variable == '0'){break;}
@@ -116,6 +109,7 @@ MatrixCalculator::MatrixCalculator(){
                     cout << " = " << flush;
                     result = v1.getDotProduct(v2);
                     result.toString();
+                    break;
                 }
                 //cross product
                 else if(dotcross == 2){
@@ -125,12 +119,49 @@ MatrixCalculator::MatrixCalculator(){
                     cout << " = " << flush;
                     result = v1.getCrossProduct(v2);
                     result.toString();
+                    break;
                 }
                 else{cerr << "Invalid option. Please re-enter your option" << flush;}
             }
         }
         //volume
+        if(main == 4){
+            cout << "Press 0 to quit" << endl;
+            cout << "Press 1 to continue" << endl;
 
+            unsigned volume;
+
+            //volume
+            while(true){
+                cin >> volume;
+                //volume
+                if(volume == 1){
+                    Vec<double> v1(3);
+                    Vec<double> v2(3);
+                    Vec<double> v3(3);
+                    Vec<double> result(3);
+                    scanVector(v1);
+                    scanVector(v2);
+                    scanVector(v3);
+
+                    cout << "The volume created by: " << flush;
+                    v1.toString();
+                    cout << ", " << flush;
+                    v2.toString();
+                    cout << ", " << flush;
+                    v3.toString();
+                    cout << " = " << flush;
+
+                    result = v1.getDotProduct(v2.getCrossProduct(v3));
+                    result.toString();
+
+                    break;
+                }
+                //quit
+                else if(volume == 0){break;}
+                else{cerr << "Invalid option. Please re-enter your option" << flush;}
+            }
+        }
         //quit
         else if(main == 0){break;}
         //invalid option
