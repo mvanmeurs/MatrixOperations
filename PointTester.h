@@ -12,7 +12,9 @@ public:
     void test2DConstructor();
     void test3DConstructor();
     void testGetXYZ();
+    void testSetXYZ();
     void testOperatorDoubleEquals();
+    void testOperatorOut();
 };
 
 

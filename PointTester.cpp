@@ -16,7 +16,9 @@ PointTester::PointTester(){
     test2DConstructor();
     test3DConstructor();
     testGetXYZ();
+    testSetXYZ();
     testOperatorDoubleEquals();
+    testOperatorOut();
     cout << "All Tests Passed!" << endl;
 }
 void PointTester::test2DConstructor(){
@@ -86,6 +88,74 @@ void PointTester::testGetXYZ() {
     assert(p2.getZ() == 3);
     cout << " 1c " << flush;
 
+    Point<int> p4(1, 2);
+    assert(p4.getX() == 1);
+    cout << " 1d " << flush;
+    assert(p4.getY() == 2);
+    cout << " 1e " << flush;
+    try{
+        p4.getZ();
+        cerr << "Get Z worked on a point of two dimensions" << flush;
+    }catch(PointException& pe){
+        cout << " 1f " << flush;
+    }
+
+    cout << " Passed!" << endl;
+}
+
+void PointTester::testSetXYZ(){
+    cout << "Testing setXYZ... " << flush;
+    //empty
+    Point<int> p1(0, 0, 0);
+    p1.setX(1);
+    p1.setY(2);
+    p1.setZ(3);
+    assert(p1.getX() == 1);
+    cout << " 0a " << flush;
+    assert(p1.getY() == 2);
+    cout << " 0b " << flush;
+    assert(p1.getZ() == 3);
+    cout << " 0c " << flush;
+
+    Point<int> p3(0, 0);
+    p3.setX(1);
+    p3.setY(2);
+    assert(p3.getX() == 1);
+    cout << " 0d " << flush;
+    assert(p3.getY() == 2);
+    cout << " 0e " << flush;
+    try{
+        p3.setZ(3);
+        cerr << "Set Z worked on a point of two dimensions" << flush;
+    }catch(PointException& pe){
+        cout << " 0f " << flush;
+    }
+
+    Point<int> p2(1, 2, 3);
+    p2.setX(0);
+    p2.setY(0);
+    p2.setZ(0);
+    assert(p2.getX() == 0);
+    cout << " 1a " << flush;
+    assert(p2.getY() == 0);
+    cout << " 1b " << flush;
+    assert(p2.getZ() == 0);
+    cout << " 1c " << flush;
+
+    Point<int> p4(1, 2);
+    p4.setX(0);
+    p4.setY(0);
+    assert(p4.getX() == 0);
+    cout << " 1d " << flush;
+    assert(p4.getY() == 0);
+    cout << " 1e " << flush;
+    try{
+        p4.setZ(0);
+        cerr << "Set Z worked on a point of two dimensions" << flush;
+    }catch(PointException& pe){
+        cout << " 1f " << flush;
+    }
+
     cout << " Passed!" << endl;
 }
 
@@ -97,11 +167,42 @@ void PointTester::testOperatorDoubleEquals() {
     assert(p1 == p2);
     assert(p2 == p1);
     cout << " 0 " << flush;
+
     Point<int> p3(1, 2, 3);
     Point<int> p4(1, 2, 3);
     assert(p3 == p4);
     assert(p4 == p3);
     cout << " 1 " << flush;
+
+    Point<int> p5(0, 0);
+    Point<int> p6(0, 0);
+    assert(p5 == p6);
+    assert(p6 == p5);
+    cout << " 2 " << flush;
+
+    Point<int> p7(1, 2);
+    Point<int> p8(1, 2);
+    assert(p7 == p8);
+    assert(p8 == p7);
+    cout << " 3 " << flush;
+
+    cout << " Passed!" << endl;
+}
+
+void PointTester::testOperatorOut(){
+    cout << "Testing operator<<..." << flush;
+
+    Point<int> p1(0, 0);
+    cout << " Should be (0, 0) | " << p1 << flush;
+
+    Point<int> p2(1, 2);
+    cout << " Should be (1, 2) | " << p2 << flush;
+
+    Point<int> p3(0, 0, 0);
+    cout << " Should be (0, 0, 0) | " << p3 << flush;
+
+    Point<int> p4(1, 2, 3);
+    cout << " Should be (1, 2, 3) | " << p4 << flush;
 
     cout << " Passed!" << endl;
 }

@@ -23,8 +23,11 @@ public:
     Item getX() const;
     Item getY() const;
     Item getZ() const;
-    void WriteToOperator(ostream &out) const;
+    void setX(const Item& item);
+    void setY(const Item& item);
+    void setZ(const Item& item);
     bool operator==(const Point<Item>&) const;
+    void WriteToOperator(ostream &out) const;
 private:
     bool isTwoDimensional = false;
     Vec<Item> myVec;
@@ -66,18 +69,31 @@ Item Point<Item>::getZ() const{
 }
 
 template<class Item>
-void Point<Item>::WriteToOperator(ostream &out) const{
-    out << "(" << flush;
-    for (int i = 0; i < myVec.getSize(); ++i){
-        out << myVec[i];
-        if(i<myVec.getSize()-1){out << ", " << flush;}
-    }
-    out << ")" << flush;
+void Point<Item>::setX(const Item& item) {myVec[0] = item;}
+
+template<class Item>
+void Point<Item>::setY(const Item& item) {myVec[1] = item;}
+
+template<class Item>
+void Point<Item>::setZ(const Item& item) {
+    if(isTwoDimensional){throw PointException("setZ", "Tried to set Z on a Point of two dimensions");}
+    myVec[2] = item;
 }
 
 template<class Item>
 bool Point<Item>::operator==(const Point<Item>& rhs) const{
     return myVec == rhs.myVec;
+}
+
+template<class Item>
+void Point<Item>::WriteToOperator(ostream &out) const{
+    out << "(" << flush;
+    for (int i = 0; i < myVec.getSize(); ++i){
+        out << myVec[i];
+        if( i == 1 && isTwoDimensional){break;}
+        if(i<myVec.getSize()-1){out << ", " << flush;}
+    }
+    out << ")" << flush;
 }
 
 template<class Item>
