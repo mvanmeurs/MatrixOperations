@@ -1,11 +1,45 @@
 Throw an exception:
-    -Item is defined as unsigned exception
-    -dot product isn't same size
+-
 methods:
-    move scan methods into Matrix.h and Vec.h and combine into .scan method
-    redefine cross product to not be in terms of getDeterminate
+    move scan methods into Matrix.h and Vec.h and combine into .scan method || should work cuz it will call the scan depending on the class type
     test files in folder
 
-    try and catch statements in Calculator to catch errors
+    Learn how to switch
 
-    operator << for functions?
+    Area created by three points
+
+    Plane class(super class of Matrix):
+        get coefficients return Vec
+        scan Plane method
+
+    Angle class:
+        get degrees
+        get radians
+
+    Plane operations:
+        Find plane with normal vector through a point
+        Find plane through three points
+        Find plane parallel to plane and passes through point
+        Find plane normal to a vector and passes through a point
+        Find angle between planes
+        Find plane with two parametrized vectors
+        Find plane through point with a normal vector
+        Are two planes parallel
+        Are two planes orthogonal
+
+    Vector operations:
+        Find Area function
+        Find Magnitude function
+            make two methods: one that returns a string and another a double
+        Find Normal Vector to a plane
+        Find Normal Vector to a plane created by three points
+        Find parameterized line through a point and orthogonal to plane
+        Find parameterized line through a point and parallel to plane
+
+    Point(s):
+        Find intersection point of a plane and a parametrized vector
+
+    Angles:
+        Find angle between two planes
+
+    operator << for Vec and Matrix

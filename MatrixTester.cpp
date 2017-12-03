@@ -483,7 +483,7 @@ void MatrixTester::testSubtraction() {
 
 void MatrixTester::testReadFromStream() {
 	cout << "Testing readFrom(istream)... " << flush;
-	ifstream fin("MatrixTest1.txt");
+	ifstream fin("testfiles/MatrixTest1.txt");
 	assert( fin.is_open() );
 	unsigned rows, columns;
 	fin >> rows >> columns;
@@ -501,7 +501,7 @@ void MatrixTester::testReadFromStream() {
 void MatrixTester::testReadFromFile() {
 	cout << "Testing readFrom(string)... " << flush;
 	Matrix<double> m;
-	m.readFrom("MatrixTest1.txt");
+	m.readFrom("testfiles/MatrixTest1.txt");
 	assert( m.getRows() == 3 );
 	assert( m.getColumns() == 4 );
 	for (unsigned i = 0; i < m.getRows(); i++) {
@@ -517,8 +517,8 @@ void MatrixTester::testWriteToStream() {
 	cout << "Testing writeTo(ostream)... " << flush;
 	Matrix<double> m;
 	// read a Matrix whose values we know
-	m.readFrom("MatrixTest1.txt");
-	ofstream fout("MatrixTest1Copy.txt");
+	m.readFrom("testfiles/MatrixTest1.txt");
+	ofstream fout("testfiles/MatrixTest1Copy.txt");
 	assert( fout.is_open() );
 	// now write it to a file via a stream
 	fout << m.getRows() << " " << m.getColumns() << "\n";
@@ -526,7 +526,7 @@ void MatrixTester::testWriteToStream() {
 	fout.close();
 	// now, read what we just wrote into a different Matrix
 	Matrix<double> m1;
-	m1.readFrom("MatrixTest1Copy.txt");
+	m1.readFrom("testfiles/MatrixTest1Copy.txt");
 	// and test it
 	assert( m1.getRows() == 3 );
 	assert( m1.getColumns() == 4 );
@@ -543,12 +543,12 @@ void MatrixTester::testWriteToFile() {
 	cout << "Testing writeTo(string)... " << flush;
 	Matrix<double> m;
 	// read in a Matrix whose values we know
-	m.readFrom("MatrixTest1.txt");
+	m.readFrom("testfiles/MatrixTest1.txt");
 	// write it to a file
-	m.writeTo("MatrixTest1Copy2.txt");
+	m.writeTo("testfiles/MatrixTest1Copy2.txt");
 	// now, read what we just wrote into a different Matrix
 	Matrix<double> m1;
-	m1.readFrom("MatrixTest1Copy2.txt");
+	m1.readFrom("testfiles/MatrixTest1Copy2.txt");
 	// test it
 	assert( m1.getRows() == 3 );
 	assert( m1.getColumns() == 4 );

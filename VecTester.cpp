@@ -572,7 +572,7 @@ void VecTester::testDotProduct() const {
 void VecTester::testReadFromFile() const {
       cout << "Testing readFrom()... " << flush;
       Vec<double> v1;
-      v1.readFrom("vecTest1.txt");
+      v1.readFrom("testfiles/vecTest1.txt");
       assert( v1.getSize() == 3 );
       assert( v1.myArray != NULL );
       assert( v1.getItem(0) == 1 );
@@ -582,7 +582,7 @@ void VecTester::testReadFromFile() const {
 
       Vec<double> v2(5);
       double* oldAddr = v2.myArray;
-      v2.readFrom("vecTest2.txt");
+      v2.readFrom("testfiles/vecTest2.txt");
       assert( v2.getSize() == 4 );
       cout << " 2 " << flush;
       assert( v2.myArray != NULL );
@@ -606,14 +606,14 @@ void VecTester::testWriteToFile() const {
       cout << "Testing writeTo()... " << flush;
       // read a vector we know into an empty Vec...
       Vec<double> v1;
-      v1.readFrom("vecTest1.txt");
+      v1.readFrom("testfiles/vecTest1.txt");
       // make a copy of it in a different file
-      v1.writeTo("vecTest1Copy.txt");
+      v1.writeTo("testfiles/vecTest1Copy.txt");
       cout << " 1 " << flush;
       cout << "vecTest1Copy.txt created " << flush;
       // read in the copy, and check it
       Vec<double> v3;
-      v3.readFrom("vecTest1Copy.txt");
+      v3.readFrom("testfiles/vecTest1Copy.txt");
       assert( v3.getSize() == 3 );
       assert( v3.myArray != NULL );
       assert( v3.getItem(0) == 1 );
@@ -623,13 +623,13 @@ void VecTester::testWriteToFile() const {
 
       // read a vector we know into a nonempty Vec...
       Vec<double> v2(5);
-      v2.readFrom("vecTest2.txt");
+      v2.readFrom("testfiles/vecTest2.txt");
       // make a copy of it in a different file
-      v2.writeTo("vecTest2Copy.txt");
+      v2.writeTo("testfiles/vecTest2Copy.txt");
       cout << " 3 " << flush;
       cout << "vecTest2Copy.txt created " << flush;
       // read in the copy and check it
-      v3.readFrom("vecTest2Copy.txt");
+      v3.readFrom("testfiles/vecTest2Copy.txt");
       assert( v3.getSize() == 4 );
       assert( v3.myArray != NULL );
       assert( v3.getItem(0) == 2 );
