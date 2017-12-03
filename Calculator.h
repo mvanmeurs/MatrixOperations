@@ -7,6 +7,8 @@
 
 
 #include "Matrix.h"
+#include "Point.h"
+#include "Plane.h"
 
 class MatrixCalculator {
 public:

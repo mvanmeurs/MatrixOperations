@@ -48,7 +48,7 @@ public:
 	Vec<Item> getCrossProduct(const Vec<Item>&) const;
     double getMagnitude() const;
     void scan();
-	void WriteTo(ostream&) const;
+	void WriteToOperator(ostream &) const;
 private:
 	unsigned mySize;
 	Item* myArray;
@@ -463,7 +463,7 @@ void Vec<Item>::scan(){
 }
 
 template<class Item>
-void Vec<Item>::WriteTo(ostream& out) const{
+void Vec<Item>::WriteToOperator(ostream &out) const{
 	out << "<" << flush;
 	for (int i = 0; i < mySize; ++i){
 		out << myArray[i];
@@ -474,7 +474,7 @@ void Vec<Item>::WriteTo(ostream& out) const{
 
 template<class Item>
 ostream& operator<<(ostream& out, const Vec<Item>& vec){
-	vec.WriteTo(out);
+    vec.WriteToOperator(out);
 	return out;
 }
 

@@ -44,7 +44,7 @@ public:
     Item getDeterminant() const;
     Item getVariable(const char&) const;
     void scan();
-	void WriteTo(ostream& out) const;
+	void WriteToOperator(ostream &out) const;
 private:
 	unsigned myRows;
 	unsigned myColumns;
@@ -442,7 +442,7 @@ void Matrix<Item>::scan() {
 }
 
 template<class Item>
-void Matrix<Item>::WriteTo(ostream& out) const{
+void Matrix<Item>::WriteToOperator(ostream &out) const{
 	out << "{" << flush;
 	for (unsigned r = 0; r < myRows; ++r){
 		if(r>0){out << " " << flush;}
@@ -457,7 +457,7 @@ void Matrix<Item>::WriteTo(ostream& out) const{
 
 template<class Item>
 ostream& operator<<(ostream& out, const Matrix<Item>& mat){
-	mat.WriteTo(out);
+    mat.WriteToOperator(out);
 	return out;
 }
 
