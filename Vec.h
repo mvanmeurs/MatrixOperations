@@ -48,6 +48,7 @@ public:
 	Vec<Item> getCrossProduct(const Vec<Item>&) const;
     double getMagnitude() const;
     void scan();
+	void WriteTo(ostream&) const;
 private:
 	unsigned mySize;
 	Item* myArray;
@@ -459,6 +460,22 @@ void Vec<Item>::scan(){
         cin >> scan;
         myArray[i] = scan;
     }
+}
+
+template<class Item>
+void Vec<Item>::WriteTo(ostream& out) const{
+	out << "<" << flush;
+	for (int i = 0; i < mySize; ++i){
+		out << myArray[i];
+		if(i<mySize-1){out << ", " << flush;}
+	}
+	out << ">" << flush;
+}
+
+template<class Item>
+ostream& operator<<(ostream& out, const Vec<Item>& vec){
+	vec.WriteTo(out);
+	return out;
 }
 
 #endif /*VEC_H_*/

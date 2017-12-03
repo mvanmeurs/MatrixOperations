@@ -18,6 +18,8 @@ CalculationOperationTester::CalculationOperationTester(){
     testVectorString();
     testVectorGetCrossProduct();
     testVectorGetMagnitude();
+    testVectorOperatorOut();
+    testMatrixOperatorOut();
     cout << "All tests passed!" << endl;
 }
 
@@ -502,6 +504,60 @@ void CalculationOperationTester::testVectorGetMagnitude(){
 
     assert(v2.getMagnitude() == 8.0);
     cout << " 1 " << flush;
+
+    cout << " Passed!" << endl;
+}
+
+void CalculationOperationTester::testVectorOperatorOut(){
+    cout << "Testing Vec operator<< ..." << flush;
+
+    cout << " (Should be <0, 0, 0> | " << flush;
+    Vec<int> v1(3);
+    for(unsigned i = 0 ; i < 3 ; i++){
+        v1.myArray[i] = 0;
+    }
+    cout << v1 << flush;
+
+    cout << ") (Should be <1, 2, 3> | " << flush;
+    int a = 1;
+    for(unsigned i = 0 ; i < 3 ; i++){
+        v1.myArray[i] = a;
+        a++;
+    }
+    cout << v1 << flush;
+
+    cout << ") (Should be <5, 6, 7> | " << flush;
+    a = 5;
+    for(unsigned i = 0 ; i < 3 ; i++){
+        v1.myArray[i] = a;
+        a++;
+    }
+    cout << v1 << flush;
+
+    cout << ") Passed!" << endl;
+}
+
+void CalculationOperationTester::testMatrixOperatorOut(){
+    cout << "Testing Matrix operator<< ..." << flush;
+
+    cout << " Should be all zeros:" << endl;
+    Matrix<int> m1(3, 3);
+    for(unsigned r = 0 ; r < 3 ; r++){
+        for(unsigned c = 0 ; c < 3 ; c++) {
+            m1.myVec[r][c] = 0;
+        }
+    }
+    cout << m1 << flush;
+
+    cout << "Should be 1, 2, 3, 4, 5, 6, 7, 8, 9:" << endl;
+    int a = 1;
+    for(unsigned r = 0 ; r < 3 ; r++){
+        for(unsigned c = 0 ; c < 3 ; c++) {
+            m1.myVec[r][c] = a;
+            a++;
+        }
+    }
+    cout << m1 << flush;
 
     cout << " Passed!" << endl;
 }

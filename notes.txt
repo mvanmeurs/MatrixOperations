@@ -43,3 +43,4 @@ methods:
         Find angle between two planes
 
     operator << for Vec and Matrix
+        must define a writeTo(ostream&

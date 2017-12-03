@@ -44,6 +44,7 @@ public:
     Item getDeterminant() const;
     Item getVariable(const char&) const;
     void scan();
+	void WriteTo(ostream& out) const;
 private:
 	unsigned myRows;
 	unsigned myColumns;
@@ -292,6 +293,7 @@ template<class Item>
 void Matrix<Item>::toString() const{
 	cout << "{" << flush;
 	for (unsigned r = 0; r < myRows; ++r){
+		if(r>0){cout << " " << flush;}
 		for (unsigned c = 0; c < myColumns; ++c) {
 			cout << (*this)[r][c];
 			if(c<myColumns-1){cout << ", " << flush;}
@@ -437,6 +439,26 @@ void Matrix<Item>::scan() {
         cout << endl;
     }
     cout << "Here is the matrix you entered:" << endl;
+}
+
+template<class Item>
+void Matrix<Item>::WriteTo(ostream& out) const{
+	out << "{" << flush;
+	for (unsigned r = 0; r < myRows; ++r){
+		if(r>0){out << " " << flush;}
+		for (unsigned c = 0; c < myColumns; ++c) {
+			out << (*this)[r][c];
+			if(c<myColumns-1){out << ", " << flush;}
+		}
+		if(r!=myRows-1){out << '\n' << flush;}
+	}
+	out << "}" << '\n' << flush;
+}
+
+template<class Item>
+ostream& operator<<(ostream& out, const Matrix<Item>& mat){
+	mat.WriteTo(out);
+	return out;
 }
 
 #endif

@@ -22,6 +22,8 @@ public:
     void testVectorString();
     void testVectorGetCrossProduct();
     void testVectorGetMagnitude();
+    void testVectorOperatorOut();
+    void testMatrixOperatorOut();
 };
 
 
