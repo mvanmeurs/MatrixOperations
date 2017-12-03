@@ -14,6 +14,7 @@
 #include <cassert>
 
 #include "MatrixDimensionException.h"
+#include "math.h"
 
 using namespace std;
 
@@ -45,13 +46,14 @@ public:
 	void scaleBy(const double&);
     void toString() const;
 	Vec<Item> getCrossProduct(const Vec<Item>&) const;
+    double getMagnitude() const;
     void scan();
 private:
 	unsigned mySize;
 	Item* myArray;
 	friend class VecTester;
 	friend class MatrixTester;
-	friend class MatrixOperationTester;
+	friend class CalculationOperationTester;
 };
 
 /* Vec default constructor
@@ -438,6 +440,15 @@ Vec<Item> Vec<Item>::getCrossProduct(const Vec<Item>& rhs) const{
 
 	return newvec;
 
+}
+
+template<class Item>
+double Vec<Item>::getMagnitude() const{
+    double sum;
+    for(unsigned i = 0 ; i < mySize ; i++){
+        sum += pow(myArray[i], 2);
+    }
+    return sqrt(sum);
 }
 
 template<class Item>

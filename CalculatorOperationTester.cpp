@@ -2,12 +2,12 @@
 // Created by mason on 11/28/17.
 //
 #include <cassert>
-#include "MatrixOperationTester.h"
+#include "CalculatorOperationTester.h"
 
 using namespace std;
 
-MatrixOperationTester::MatrixOperationTester(){
-    cout << "Testing Class Matrix Operations..." << endl;
+CalculationOperationTester::CalculationOperationTester(){
+    cout << "Testing Operations..." << endl;
     testDoubleMatrix();
     testTripleMatrix();
     testGetDeterminant();
@@ -17,10 +17,11 @@ MatrixOperationTester::MatrixOperationTester(){
     testScaleBy();
     testVectorString();
     testVectorGetCrossProduct();
+    testVectorGetMagnitude();
     cout << "All tests passed!" << endl;
 }
 
-void MatrixOperationTester::testDoubleMatrix(){
+void CalculationOperationTester::testDoubleMatrix(){
     cout << "Testing 2x2 Matrix... " << flush;
     Matrix<unsigned> m1(2, 2);
     for(unsigned r = 0 ; r < 2 ; r++){
@@ -60,7 +61,7 @@ void MatrixOperationTester::testDoubleMatrix(){
     cout << "Passed!" << endl;
 }
 
-void MatrixOperationTester::testTripleMatrix(){
+void CalculationOperationTester::testTripleMatrix(){
     cout << "Testing 3x3 Matrix... " << flush;
     Matrix<unsigned> m1(3, 3);
     for(unsigned r = 0 ; r < 3 ; r++){
@@ -96,7 +97,7 @@ void MatrixOperationTester::testTripleMatrix(){
     cout << "Passed!" << endl;
 }
 
-void MatrixOperationTester::testGetDeterminant(){
+void CalculationOperationTester::testGetDeterminant(){
     cout << "Testing getDeterminant..." << flush;
 
     Matrix<int> m1(4, 5);
@@ -165,7 +166,7 @@ void MatrixOperationTester::testGetDeterminant(){
     cout << " Passed!" << endl;
 }
 
-void MatrixOperationTester::testGetXYZ(){
+void CalculationOperationTester::testGetXYZ(){
     cout << "Testing getXYZ()..." << flush;
     Matrix<int> m(3, 4);
 
@@ -230,7 +231,7 @@ void MatrixOperationTester::testGetXYZ(){
 
 }
 
-void MatrixOperationTester::testGetVariable(){
+void CalculationOperationTester::testGetVariable(){
     cout << "Testing getVariable... " << flush;
 
     Matrix<int> m1(3, 4);
@@ -301,7 +302,7 @@ void MatrixOperationTester::testGetVariable(){
     cout << " Passed!" << endl;
 }
 
-void MatrixOperationTester::testGetDotProduct(){
+void CalculationOperationTester::testGetDotProduct(){
     cout << "Testing getDotProduct... " << flush;
 
     Vec<int> m1(3);
@@ -378,7 +379,7 @@ void MatrixOperationTester::testGetDotProduct(){
     cout << " Passed!" << endl;
 }
 
-void MatrixOperationTester::testScaleBy(){
+void CalculationOperationTester::testScaleBy(){
     cout << "Testing scaleBy..." << flush;
 
     Vec<int> v1(3);
@@ -416,7 +417,7 @@ void MatrixOperationTester::testScaleBy(){
     cout << " Passed!" << endl;
 }
 
-void MatrixOperationTester::testVectorString(){
+void CalculationOperationTester::testVectorString(){
     cout << "Testing Vec toString..." << flush;
 
     cout << " (Should be <0, 0, 0> | " << flush;
@@ -445,7 +446,7 @@ void MatrixOperationTester::testVectorString(){
     cout << ") Passed!" << endl;
 }
 
-void MatrixOperationTester::testVectorGetCrossProduct(){
+void CalculationOperationTester::testVectorGetCrossProduct(){
     cout << "Testing Vec getCrossProduct..." << flush;
     Vec<int> v1(3);
     Vec<int> v2(4);
@@ -477,6 +478,30 @@ void MatrixOperationTester::testVectorGetCrossProduct(){
     result.scaleBy(-1);
     assert(v4.getCrossProduct(v3) == result);
     cout << " 2 " << flush;
+
+    cout << " Passed!" << endl;
+}
+
+void CalculationOperationTester::testVectorGetMagnitude(){
+    cout << "Testing Vec getMagnitude..." << flush;
+
+    //This test seems to not be passing half of the time for some reason
+    Vec<int> v1(2);
+    v1.myArray[0] = 3;
+    v1.myArray[1] = 4;
+
+    assert(v1.getMagnitude() == 5.0);
+    cout << " 0 " << flush;
+
+    Vec<int> v2(5);
+    v2.myArray[0] = 1;
+    v2.myArray[1] = 1;
+    v2.myArray[2] = 2;
+    v2.myArray[3] = 3;
+    v2.myArray[4] = 7;
+
+    assert(v2.getMagnitude() == 8.0);
+    cout << " 1 " << flush;
 
     cout << " Passed!" << endl;
 }

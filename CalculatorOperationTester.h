@@ -9,9 +9,9 @@
 using namespace std;
 
 
-class MatrixOperationTester {
+class CalculationOperationTester {
 public:
-    MatrixOperationTester();
+    CalculationOperationTester();
     void testDoubleMatrix();
     void testTripleMatrix();
     void testGetDeterminant();
@@ -21,6 +21,7 @@ public:
     void testScaleBy();
     void testVectorString();
     void testVectorGetCrossProduct();
+    void testVectorGetMagnitude();
 };
 
 

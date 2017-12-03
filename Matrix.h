@@ -54,7 +54,7 @@ private:
     Item getY() const;
     Item getZ() const;
 	friend class MatrixTester;
-    friend class MatrixOperationTester;
+    friend class CalculationOperationTester;
 };
 
 /* Default Constructor
