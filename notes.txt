@@ -1,8 +1,8 @@
 Throw an exception:
 -
 methods:
-    move scan methods into Matrix.h and Vec.h and combine into .scan method || should work cuz it will call the scan depending on the class type
-    test files in folder
+
+    Split Menu into Vec, Matrix, Plane, Point, Angle operations
 
     Learn how to switch
 

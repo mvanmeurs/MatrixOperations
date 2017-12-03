@@ -12,9 +12,12 @@ class MatrixCalculator {
 public:
     MatrixCalculator();
 private:
-    void scanMatrix(Matrix<double>& matrix);
-    void scanVector(Vec<double>&);
-    void printOptions() const;
+    void printMainMenuOptions() const;
+    void printVectorOptions() const;
+    void printMatrixOptions() const;
+    void printPlaneOptions() const;
+    void printPointOptions() const;
+    void printAngleOptions() const;
 };
 
 

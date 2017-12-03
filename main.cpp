@@ -2,7 +2,7 @@
 #include "VecTester.h"
 #include "MatrixTester.h"
 #include "MatrixOperationTester.h"
-#include "MatrixCalculator.h"
+#include "Calculator.h"
 
 using namespace std;
 

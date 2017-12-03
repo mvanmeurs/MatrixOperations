@@ -45,6 +45,7 @@ public:
 	void scaleBy(const double&);
     void toString() const;
 	Vec<Item> getCrossProduct(const Vec<Item>&) const;
+    void scan();
 private:
 	unsigned mySize;
 	Item* myArray;
@@ -437,6 +438,16 @@ Vec<Item> Vec<Item>::getCrossProduct(const Vec<Item>& rhs) const{
 
 	return newvec;
 
+}
+
+template<class Item>
+void Vec<Item>::scan(){
+    cout << "Please enter the values for your Vector:" << endl;
+    double scan;
+    for(unsigned i = 0; i < mySize; i++){
+        cin >> scan;
+        myArray[i] = scan;
+    }
 }
 
 #endif /*VEC_H_*/

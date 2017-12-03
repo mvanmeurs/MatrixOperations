@@ -43,8 +43,7 @@ public:
 	void toString() const;
     Item getDeterminant() const;
     Item getVariable(const char&) const;
-    //Item getDotProduct(const Matrix<Item>&) const;
-	Vec<Item> getCrossProduct() const;
+    void scan();
 private:
 	unsigned myRows;
 	unsigned myColumns;
@@ -426,21 +425,18 @@ Item Matrix<Item>::getZ() const{
     return top.getDeterminantTriple()/bottom.getDeterminantTriple();
 }
 
-//template<class Item>
-//Item Matrix<Item>::getDotProduct(const Matrix<Item>& rhs) const{
-//    if(myRows != 1 || rhs.myRows != 1 || myColumns != rhs.myColumns){
-//        throw MatrixDimensionException("getDotProduct: ", "Vectors aren't the same dimensions");
-//    }
-//    Item sum = 0;
-//    for(unsigned i = 0 ; i<myColumns ; i++){
-//        sum += (myVec[0][i]*rhs.myVec[0][i]);
-//    }
-//    return sum;
-//}
-
 template<class Item>
-Vec<Item> Matrix<Item>::getCrossProduct() const{
-
+void Matrix<Item>::scan() {
+    cout << "Please enter the values for your " << myRows << "x" << myColumns << " matrix:" << endl;
+    double scan;
+    for(unsigned r = 0; r < myRows; r++) {
+        for (unsigned c = 0; c < myColumns; c++) {
+            cin >> scan;
+            myVec[r][c] = scan;
+        }
+        cout << endl;
+    }
+    cout << "Here is the matrix you entered:" << endl;
 }
 
 #endif
