@@ -3,8 +3,8 @@
  * Modified by: Mason VanMeurs
  */
 
-#ifndef VARIABLE_EXCEPTION
-#define VARIABLE_EXCEPTION
+#ifndef POINT_EXCEPTION
+#define POINT_EXCEPTION
 
 #include <iostream>
 using namespace std;
