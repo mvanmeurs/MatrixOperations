@@ -11,6 +11,8 @@ public:
     PointTester();
     void test2DConstructor();
     void test3DConstructor();
+    void testGetXYZ();
+    void testOperatorDoubleEquals();
 };
 
 

@@ -9,6 +9,7 @@
 
 #include <cstdlib>
 #include "Vec.h"
+#include "PointException.h"
 
 using namespace std;
 
@@ -19,12 +20,13 @@ public:
     Point(Item, Item);
     Point(Item, Item, Item);
     ~Point();
-    Vec<Item> getX() const;
-    Vec<Item> getY() const;
-    Vec<Item> getZ() const;
+    Item getX() const;
+    Item getY() const;
+    Item getZ() const;
     void WriteToOperator(ostream &out) const;
+    bool operator==(const Point<Item>&) const;
 private:
-    //enum { SIZE = 3 };
+    bool isTwoDimensional = false;
     Vec<Item> myVec;
     friend class PointTester;
 };
@@ -35,6 +37,7 @@ Point<Item>::Point(Item myx, Item myy) {
     myVec[0] = myx;
     myVec[1] = myy;
     myVec[2] = 0;
+    isTwoDimensional = true;
 }
 
 template<class Item>
@@ -51,13 +54,16 @@ Point<Item>::~Point() {
 }
 
 template<class Item>
-Vec<Item> Point<Item>::getX() const{return myVec[0];}
+Item Point<Item>::getX() const{return myVec[0];}
 
 template<class Item>
-Vec<Item> Point<Item>::getY() const{return myVec[1];}
+Item Point<Item>::getY() const{return myVec[1];}
 
 template<class Item>
-Vec<Item> Point<Item>::getZ() const{return myVec[2];}
+Item Point<Item>::getZ() const{
+    if(isTwoDimensional){throw PointException("getZ", "Tried to get Z on a Point of two dimensions");}
+    return myVec[2];
+}
 
 template<class Item>
 void Point<Item>::WriteToOperator(ostream &out) const{
@@ -67,6 +73,11 @@ void Point<Item>::WriteToOperator(ostream &out) const{
         if(i<myVec.getSize()-1){out << ", " << flush;}
     }
     out << ")" << flush;
+}
+
+template<class Item>
+bool Point<Item>::operator==(const Point<Item>& rhs) const{
+    return myVec == rhs.myVec;
 }
 
 template<class Item>
