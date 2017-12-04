@@ -20,6 +20,9 @@ methods:
         Are two planes orthogonal
 
     Vector operations:
+
+        round in getMagnitude to fix errors
+
         make a way to input fractions
             prolly way too hard
 

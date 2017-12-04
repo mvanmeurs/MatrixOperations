@@ -19,7 +19,6 @@ public:
     void testGetVariable();
     void testGetDotProduct();
     void testScaleBy();
-    void testVectorString();
     void testVectorGetCrossProduct();
     void testVectorGetMagnitude();
     void testVectorOperatorOut();

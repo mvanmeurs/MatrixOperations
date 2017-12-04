@@ -39,10 +39,9 @@ private:
 
 template<class Item>
 Point<Item>::Point(Item myx, Item myy) {
-    myVec.setSize(3);
+    myVec.setSize(2);
     myVec[0] = myx;
     myVec[1] = myy;
-    myVec[2] = 0;
     isTwoDimensional = true;
 }
 
@@ -97,7 +96,7 @@ bool Point<Item>::operator!=(const Point<Item>& rhs) const{
 template<class Item>
 Point<Item>& Point<Item>::operator=(const Point<Item>& rhs){
     if(myVec == rhs.myVec){return *this;}
-    for(int i = 0 ; i<3 ; i++){
+    for(int i = 0 ; i<rhs.myVec.getSize() ; i++){
         myVec[i] = rhs.myVec[i];
     }
     return *this;
