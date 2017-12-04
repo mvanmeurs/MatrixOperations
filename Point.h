@@ -27,6 +27,7 @@ public:
     void setY(const Item& item);
     void setZ(const Item& item);
     bool operator==(const Point<Item>&) const;
+    Point<Item>& operator=(const Point<Item>&);
     void WriteToOperator(ostream &out) const;
 private:
     bool isTwoDimensional = false;
@@ -94,6 +95,15 @@ void Point<Item>::WriteToOperator(ostream &out) const{
         if(i<myVec.getSize()-1){out << ", " << flush;}
     }
     out << ")" << flush;
+}
+
+template<class Item>
+Point<Item>& Point<Item>::operator=(const Point<Item>& rhs){
+    if(myVec == rhs.myVec){return *this;}
+    for(int i = 0 ; i<3 ; i++){
+        myVec[i] = rhs.myVec[i];
+    }
+    return *this;
 }
 
 template<class Item>

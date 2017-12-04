@@ -14,6 +14,7 @@ public:
     void testGetXYZ();
     void testSetXYZ();
     void testOperatorDoubleEquals();
+    void testOperatorEquals();
     void testOperatorOut();
 };
 

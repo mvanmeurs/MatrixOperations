@@ -7,7 +7,6 @@
 #include <cassert>
 #include "PointTester.h"
 #include "Point.h"
-#include "PointException.h"
 
 using namespace std;
 
@@ -18,6 +17,7 @@ PointTester::PointTester(){
     testGetXYZ();
     testSetXYZ();
     testOperatorDoubleEquals();
+    testOperatorEquals();
     testOperatorOut();
     cout << "All Tests Passed!" << endl;
 }
@@ -185,6 +185,26 @@ void PointTester::testOperatorDoubleEquals() {
     assert(p7 == p8);
     assert(p8 == p7);
     cout << " 3 " << flush;
+
+    cout << " Passed!" << endl;
+}
+
+void PointTester::testOperatorEquals(){
+    cout << "Testing operator=..." << flush;
+
+    Point<int> p1(0, 0);
+    Point<int> p2(1, 2);
+    Point<int> p3(1, 2);
+    p1 = p2;
+    assert(p1 == p3);
+    cout << " 0 " << flush;
+
+    Point<int> p4(0, 0, 0);
+    Point<int> p5(1, 2, 3);
+    Point<int> p6(1, 2, 3);
+    p4 = p5;
+    assert(p4 == p6);
+    cout << " 1 " << flush;
 
     cout << " Passed!" << endl;
 }
