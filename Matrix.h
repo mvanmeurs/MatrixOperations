@@ -40,7 +40,6 @@ public:
 	Matrix<Item> operator-(const Matrix<Item>&) const;
 	Matrix<Item> operator*(const Matrix<Item>&) const;
 	Matrix<Item> getTranspose() const;
-	void toString() const;
     Item getDeterminant() const;
     Item getVariable(const char&) const;
     void scan();
@@ -282,25 +281,6 @@ Matrix<Item> Matrix<Item>::getTranspose() const {
 		}
 	}
 	return result;
-}
-
-/* Matrix toString
- * @parameter: m2, a Matrix
- * Prints the matrix passed in for the application class
- * Return: nothing
- */
-template<class Item>
-void Matrix<Item>::toString() const{
-	cout << "{" << flush;
-	for (unsigned r = 0; r < myRows; ++r){
-		if(r>0){cout << " " << flush;}
-		for (unsigned c = 0; c < myColumns; ++c) {
-			cout << (*this)[r][c];
-			if(c<myColumns-1){cout << ", " << flush;}
-		}
-		if(r!=myRows-1){cout << '\n' << flush;}
-	}
-	cout << "}" << '\n' << flush;
 }
 
 template<class Item>
