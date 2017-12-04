@@ -14,6 +14,10 @@ public:
     void testGetXYZ();
     void testGetCoefficients();
     void testSetXYZ();
+    void testOperatorDoubleEquals();
+    void testOperatorNotEquals();
+    void testOperatorEquals();
+    void testOperatorOut();
 };
 
 

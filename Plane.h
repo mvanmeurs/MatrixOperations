@@ -31,6 +31,9 @@ public:
     void setY(const Item&);
     void setZ(const Item&);
     void setEqualsTo(const Item&);
+    bool operator==(const Plane<Item>&) const;
+    bool operator!=(const Plane<Item>&) const;
+    Plane<Item>& operator=(const Plane<Item>&);
     void WriteToOperator(ostream &out) const;
 private:
     Vec<Item> myVec;
@@ -114,6 +117,27 @@ void Plane<Item>::setZ(const Item& setZ){
 template<class Item>
 void Plane<Item>::setEqualsTo(const Item& setequals){
     myVec[3] = setequals;
+}
+
+template<class Item>
+bool Plane<Item>::operator==(const Plane<Item>& rhs) const{
+    if(myVec == rhs.myVec){return true;}
+    else{return false;}
+}
+
+template<class Item>
+bool Plane<Item>::operator!=(const Plane<Item>& rhs) const{
+    if(myVec == rhs.myVec){return false;}
+    else{return true;}
+}
+
+template<class Item>
+Plane<Item>& Plane<Item>::operator=(const Plane<Item>& rhs){
+    if(myVec == rhs.myVec){return *this;}
+    for(int i = 0 ; i<4 ; i++){
+        myVec[i] = rhs.myVec[i];
+    }
+    return *this;
 }
 
 template<class Item>

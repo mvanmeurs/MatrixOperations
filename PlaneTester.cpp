@@ -17,6 +17,10 @@ PlaneTester::PlaneTester(){
     testGetXYZ();
     testGetCoefficients();
     testSetXYZ();
+    testOperatorDoubleEquals();
+    testOperatorNotEquals();
+    testOperatorEquals();
+    testOperatorOut();
     cout << "All Tests Passed!" << endl;
 }
 
@@ -106,5 +110,84 @@ void PlaneTester::testGetCoefficients(){
 void PlaneTester::testSetXYZ(){
     cout << "Testing setXYZ... " << flush;
 
+    Plane<int> p1(0, 0, 0, 0);
+    Plane<int> p2(1, 2, 3, 0);
+    p1.setX(1);
+    p1.setY(2);
+    p1.setZ(3);
+    assert(p1 == p2);
+    cout << " 0 " << flush;
+
     cout << " Passed!" << endl;
+}
+
+void PlaneTester::testOperatorDoubleEquals() {
+    cout << "Testing operator==..." << flush;
+
+    Plane<int> p1(0, 0, 0, 0);
+    Plane<int> p2(0, 0, 0, 0);
+    assert(p1 == p2);
+    cout << " 0a " << flush;
+    assert(p2 == p1);
+    cout << " 0b " << flush;
+
+    Plane<int> p3(1, 2, 3, 4);
+    Plane<int> p4(1, 2, 3, 4);
+    assert(p3 == p4);
+    cout << " 1a " << flush;
+    assert(p4 == p3);
+    cout << " 1b " << flush;
+
+    Plane<int> p5(1, 2, 3, 4);
+    Plane<int> p6(0, 0, 0, 0);
+    assert(!(p5 == p6));
+    cout << " 2a " << flush;
+    assert(!(p6 == p5));
+    cout << " 2b " << flush;
+
+    cout << " Passed!" << endl;
+}
+
+void PlaneTester::testOperatorNotEquals() {
+    cout << "Testing operator!=..." << flush;
+
+    Plane<int> p1(0, 0, 0, 0);
+    Plane<int> p2(0, 0, 0, 0);
+    assert(!(p1 != p2));
+    cout << " 0a " << flush;
+    assert(!(p2 != p1));
+    cout << " 0b " << flush;
+
+    Plane<int> p3(1, 2, 3, 4);
+    Plane<int> p4(1, 2, 3, 4);
+    assert(!(p3 != p4));
+    cout << " 1a " << flush;
+    assert(!(p4 != p3));
+    cout << " 1b " << flush;
+
+    Plane<int> p5(1, 2, 3, 4);
+    Plane<int> p6(0, 0, 0, 0);
+    assert(p5 != p6);
+    cout << " 2a " << flush;
+    assert(p6 != p5);
+    cout << " 2b " << flush;
+
+    cout << " Passed!" << endl;
+}
+
+void PlaneTester::testOperatorEquals() {
+    cout << "Testing operator=..." << flush;
+
+    Plane<int> p1(0, 0, 0, 0);
+    Plane<int> p2(1, 2, 3, 4);
+    Plane<int> p3(1, 2, 3, 4);
+    p1 = p2;
+    assert(p1 == p3);
+    cout << " 0 " << flush;
+
+    cout << " Passed!" << endl;
+}
+
+void PlaneTester::testOperatorOut(){
+
 }

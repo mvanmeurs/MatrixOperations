@@ -8,7 +8,7 @@ methods:
 
     Area created by three points
 
-    Plane class(super class of Matrix):
+    Plane class(super class of Vec):
         get coefficients return Vec
         scan Plane method
 
@@ -28,6 +28,8 @@ methods:
         Are two planes orthogonal
 
     Vector operations:
+        make a way to input fractions
+
         Find Area function
         Find Magnitude function
             make two methods: one that returns a string and another a double
@@ -38,6 +40,7 @@ methods:
 
     Point(s):
         Find intersection point of a plane and a parametrized vector
+        scan Point
 
     Angles:
         Find angle between two planes
