@@ -27,6 +27,7 @@ public:
     void setY(const Item& item);
     void setZ(const Item& item);
     bool operator==(const Point<Item>&) const;
+    bool operator!=(const Point<Item>&) const;
     Point<Item>& operator=(const Point<Item>&);
     void WriteToOperator(ostream &out) const;
 private:
@@ -87,14 +88,9 @@ bool Point<Item>::operator==(const Point<Item>& rhs) const{
 }
 
 template<class Item>
-void Point<Item>::WriteToOperator(ostream &out) const{
-    out << "(" << flush;
-    for (int i = 0; i < myVec.getSize(); ++i){
-        out << myVec[i];
-        if( i == 1 && isTwoDimensional){break;}
-        if(i<myVec.getSize()-1){out << ", " << flush;}
-    }
-    out << ")" << flush;
+bool Point<Item>::operator!=(const Point<Item>& rhs) const{
+    if(myVec == rhs.myVec){return false;}
+    return true;
 }
 
 template<class Item>
@@ -104,6 +100,17 @@ Point<Item>& Point<Item>::operator=(const Point<Item>& rhs){
         myVec[i] = rhs.myVec[i];
     }
     return *this;
+}
+
+template<class Item>
+void Point<Item>::WriteToOperator(ostream &out) const{
+    out << "(" << flush;
+    for (int i = 0; i < myVec.getSize(); ++i){
+        out << myVec[i];
+        if( i == 1 && isTwoDimensional){break;}
+        if(i<myVec.getSize()-1){out << ", " << flush;}
+    }
+    out << ")" << flush;
 }
 
 template<class Item>

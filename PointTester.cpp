@@ -17,6 +17,7 @@ PointTester::PointTester(){
     testGetXYZ();
     testSetXYZ();
     testOperatorDoubleEquals();
+    testOperatorNotEquals();
     testOperatorEquals();
     testOperatorOut();
     cout << "All Tests Passed!" << endl;
@@ -186,6 +187,23 @@ void PointTester::testOperatorDoubleEquals() {
     assert(p8 == p7);
     cout << " 3 " << flush;
 
+    cout << " Passed!" << endl;
+}
+
+void PointTester::testOperatorNotEquals(){
+    cout << "Testing operator!=..." << flush;
+    Point<int> p1(1, 2);
+    Point<int> p2(1, 3);
+    Point<int> p3(2, 3);
+    Point<int> p4(1, 2);
+    assert(p1 != p2);
+    cout << " 0 " << flush;
+    assert(p2 != p3);
+    cout << " 1 " << flush;
+    assert(p1 != p3);
+    cout << " 2 " << flush;
+    assert(!(p1 != p4));
+    cout << " 3 " << flush;
     cout << " Passed!" << endl;
 }
 
