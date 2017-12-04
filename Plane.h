@@ -33,6 +33,7 @@ public:
     void setEqualsTo(const Item&);
     bool operator==(const Plane<Item>&) const;
     bool operator!=(const Plane<Item>&) const;
+    void scan();
     Plane<Item>& operator=(const Plane<Item>&);
     void WriteToOperator(ostream &out) const;
 private:
@@ -138,6 +139,19 @@ Plane<Item>& Plane<Item>::operator=(const Plane<Item>& rhs){
         myVec[i] = rhs.myVec[i];
     }
     return *this;
+}
+
+template<class Item>
+void Plane<Item>::scan(){
+    cout << "Please enter the coefficients for your plane:" << endl;
+    double scan;
+    for(unsigned i = 0 ; i < 3 ; i++){
+        cin >> scan;
+        myVec[i] = scan;
+    }
+    cout << "Please enter what your Plane is equal to:" << endl;
+    cin >> scan;
+    myVec[3] = scan;
 }
 
 template<class Item>

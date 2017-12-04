@@ -2,15 +2,7 @@ Throw an exception:
 -
 methods:
 
-    Split Menu into Vec, Matrix, Plane, Point, Angle operations
-
     Learn how to switch
-
-    Area created by three points
-
-    Plane class(super class of Vec):
-        get coefficients return Vec
-        scan Plane method
 
     Angle class:
         get degrees
@@ -29,6 +21,7 @@ methods:
 
     Vector operations:
         make a way to input fractions
+            prolly way too hard
 
         Find Area function
         Find Magnitude function
@@ -40,10 +33,7 @@ methods:
 
     Point(s):
         Find intersection point of a plane and a parametrized vector
-        scan Point
+        Find Area from three points
 
     Angles:
         Find angle between two planes
-
-    operator << for Vec and Matrix
-        must define a writeTo(ostream&

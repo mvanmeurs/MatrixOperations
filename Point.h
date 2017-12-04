@@ -29,6 +29,7 @@ public:
     bool operator==(const Point<Item>&) const;
     bool operator!=(const Point<Item>&) const;
     Point<Item>& operator=(const Point<Item>&);
+    void scan();
     void WriteToOperator(ostream &out) const;
 private:
     bool isTwoDimensional = false;
@@ -100,6 +101,24 @@ Point<Item>& Point<Item>::operator=(const Point<Item>& rhs){
         myVec[i] = rhs.myVec[i];
     }
     return *this;
+}
+
+template<class Item>
+void Point<Item>::scan(){
+    cout << "Please enter the values for your Point:" << endl;
+    double scan;
+    if(isTwoDimensional){
+        for(unsigned i = 0; i < 2; i++){
+            cin >> scan;
+            myVec[i] = scan;
+        }
+    }
+    else{
+        for(unsigned i = 0; i < 3; i++){
+            cin >> scan;
+            myVec[i] = scan;
+        }
+    }
 }
 
 template<class Item>
