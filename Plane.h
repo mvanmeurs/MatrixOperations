@@ -142,28 +142,42 @@ Plane<Item>& Plane<Item>::operator=(const Plane<Item>& rhs){
 
 template<class Item>
 void Plane<Item>::WriteToOperator(ostream &out) const{
-    //is x coefficient negative
-    if(myVec[0] < 0){out << " - " << flush;}
-    else{out << " + " << flush;}
-    out << abs(myVec[0]) << flush;
-    //is x not zero
-    if(myVec[0] != 0){out << "X " << flush;}
+    //if all values are zero
+    if(myVec[0] == 0 && myVec[1] == 0 && myVec[2] == 0 && myVec[3] == 0){
+        out << "All real numbers are solutions" << flush;
+    }
+    else{
+        //is x coefficient negative
+        if(myVec[0] < 0 && myVec[0] != 0){out << "-" << flush;}\
+        //if the coefficient isn't 1
+        if(abs(myVec[0]) != 1 && myVec[0] != 0){
+            out << abs(myVec[0]) << flush;
+        }
+        //is x not zero
+        if(myVec[0] != 0){out << "X " << flush;}
 
-    //is y coefficient negative
-    if(myVec[1] < 0){out << " - " << flush;}
-    else{out << " + " << flush;}
-    out << abs(myVec[1]) << flush;
-    //is y not zero
-    if(myVec[1] != 0){out << "Y " << flush;}
+        //is y coefficient negative
+        if(myVec[1] < 0 && myVec[1] != 0){out << "- " << flush;}
+        else if(myVec[1] != 0){out << "+ " << flush;}
+        //if the coefficient isn't 1
+        if(abs(myVec[1]) != 1 && myVec[1] != 0){
+            out << abs(myVec[1]) << flush;
+        }
+        //is y not zero
+        if(myVec[1] != 0){out << "Y " << flush;}
 
-    //is z coefficient negative
-    if(myVec[2] < 0){out << " - " << flush;}
-    else{out << " + " << flush;}
-    out << abs(myVec[2]) << flush;
-    //is z not zero
-    if(myVec[2] != 0){out << "Z " << flush;}
-    out << " = " << flush;
-    out << myVec[3] << flush;
+        //is z coefficient negative
+        if(myVec[2] < 0 && myVec[2] != 0){out << "- " << flush;}
+        else if(myVec[2] != 0){out << "+ " << flush;}
+        //if the coefficient isn't 1
+        if(abs(myVec[2]) != 1 && myVec[2] != 0){
+            out << abs(myVec[2]) << flush;
+        }
+        //is z not zero
+        if(myVec[2] != 0){out << "Z " << flush;}
+        out << "= " << flush;
+        out << myVec[3] << flush;
+    }
 }
 
 template<class Item>

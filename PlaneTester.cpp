@@ -189,5 +189,25 @@ void PlaneTester::testOperatorEquals() {
 }
 
 void PlaneTester::testOperatorOut(){
+    cout << "Testing operator<<... " << flush;
 
+    Plane<int> p1(0, 0, 0, 0);
+    cout << "Should be 'All real numbers are solutions' | " << p1 << flush;
+
+    Plane<int> p2(1, -1, 1, -1);
+    cout << " Should be X - Y + Z = -1 | " << p2 << flush;
+
+    Plane<int> p3(-1, 0, -4, 5);
+    cout << " Should be -X - 4Z = 5 | " << p3 << flush;
+
+    Plane<int> p4(0, -3, 1, 0);
+    cout << " Should be - 3Y + Z = 0 | " << p4 << flush;
+
+    Plane<int> p5(5, -1, -1, 9);
+    cout << " Should be 5X - Y - Z = 9 | " << p5 << flush;
+
+    Plane<int> p6(-2, 3, 0, 1);
+    cout << " Should be -2X + 3Y = 1 | " << p6 << flush;
+
+    cout << " Passed!" << endl;
 }
