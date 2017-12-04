@@ -17,13 +17,16 @@ template<class Item>
 
 class Plane {
 public:
-    Plane(Item, Item, Item);
     Plane(Item, Item, Item, Item);
     ~Plane();
+    Item getx() const;
+    Item gety() const;
+    Item getz() const;
     Vec<Item> getX() const;
     Vec<Item> getY() const;
     Vec<Item> getZ() const;
-    Vec<Item> getMyEqualsTo() const;
+    Item getMyEqualsTo() const;
+    Vec<Item> getCoefficients() const;
     void setX(const Item&);
     void setY(const Item&);
     void setZ(const Item&);
@@ -31,18 +34,12 @@ public:
     void WriteToOperator(ostream &out) const;
 private:
     Vec<Item> myVec;
+    friend class PlaneTester;
 };
 
 template<class Item>
-Plane<Item>::Plane(Item myx, Item myy, Item myz) {
-    myVec[0] = myx;
-    myVec[1] = myy;
-    myVec[2] = myz;
-    myVec[3] = 0;
-}
-
-template<class Item>
 Plane<Item>::Plane(Item myx, Item myy, Item myz, Item myequals) {
+    myVec.setSize(4);
     myVec[0] = myx;
     myVec[1] = myy;
     myVec[2] = myz;
@@ -55,34 +52,47 @@ Plane<Item>::~Plane() {
 }
 
 template<class Item>
+Item Plane<Item>::getx() const{return myVec[0];}
+
+template<class Item>
+Item Plane<Item>::gety() const{return myVec[1];}
+
+template<class Item>
+Item Plane<Item>::getz() const{return myVec[2];}
+
+template<class Item>
 Vec<Item> Plane<Item>::getX() const{
-    Vec<Item> result(4);
+    Vec<Item> result(3);
     result[0] = myVec[0];
-    result[1] = result[2] = result[3] = 0;
+    result[1] = result[2] = 0;
     return result;
 }
 
 template<class Item>
 Vec<Item> Plane<Item>::getY() const{
-    Vec<Item> result(4);
+    Vec<Item> result(3);
     result[1] = myVec[1];
-    result[0] = result[2] = result[3] = 0;
+    result[0] = result[2] = 0;
     return result;
 }
 
 template<class Item>
 Vec<Item> Plane<Item>::getZ() const{
-    Vec<Item> result(4);
+    Vec<Item> result(3);
     result[2] = myVec[2];
-    result[0] = result[1] = result[3] = 0;
+    result[0] = result[1] = 0;
     return result;
 }
 
 template<class Item>
-Vec<Item> Plane<Item>::getMyEqualsTo() const{
-    Vec<Item> result(4);
-    result[3] = myVec[3];
-    result[0] = result[1] = result[2] = 0;
+Item Plane<Item>::getMyEqualsTo() const{return myVec[3];}
+
+template<class Item>
+Vec<Item> Plane<Item>::getCoefficients() const{
+    Vec<Item> result(3);
+    result[0] = myVec[0];
+    result[1] = myVec[1];
+    result[2] = myVec[2];
     return result;
 }
 
