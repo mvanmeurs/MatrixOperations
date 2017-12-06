@@ -10,16 +10,15 @@
 #include "Point.h"
 #include "Plane.h"
 
-class MatrixCalculator {
+class Menu {
 public:
-    MatrixCalculator();
+    Menu();
 private:
     void printMainMenuOptions() const;
     void printVectorOptions() const;
     void printMatrixOptions() const;
     void printPlaneOptions() const;
     void printPointOptions() const;
-    void printAngleOptions() const;
 };
 
 

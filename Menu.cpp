@@ -6,7 +6,7 @@
 
 using namespace std;
 
-MatrixCalculator::MatrixCalculator(){
+Menu::Menu(){
     cout << "Welcome to the Vector Calculus class!" << endl;
     cout << endl;
     printMainMenuOptions();
@@ -53,7 +53,7 @@ MatrixCalculator::MatrixCalculator(){
     cout << "Thanks for using the Vector Calculus Class!" << flush;
 }
 
-void MatrixCalculator::printMainMenuOptions() const {
+void Menu::printMainMenuOptions() const {
     cout << "Press 1 to perform an operation that returns a Vector" << endl;
     cout << "Press 2 to perform an operation that returns a Matrix" << endl;
     cout << "Press 3 to perform an operation that returns a Plane" << endl;
@@ -62,7 +62,7 @@ void MatrixCalculator::printMainMenuOptions() const {
     cout << "Press 0 to quit" << endl;
 }
 
-void MatrixCalculator::printVectorOptions() const {
+void Menu::printVectorOptions() const {
     cout << "Press 1 to find the Area from two Vectors" << endl;
     cout << "Press 2 to find the Magnitude of a Vector" << endl;
     cout << "Press 3 to find the Normal Vector to a Plane" << endl;
@@ -72,7 +72,7 @@ void MatrixCalculator::printVectorOptions() const {
     cout << "Press 0 to quit" << endl;
 }
 
-void MatrixCalculator::printMatrixOptions() const {
+void Menu::printMatrixOptions() const {
     cout << "Press 1 to get the determinant of a Matrix" << endl;
     cout << "Press 2 to solve for X in a 3x3 Matrix" << endl;
     cout << "Press 2 to solve for Y in a 3x3 Matrix" << endl;
@@ -80,7 +80,7 @@ void MatrixCalculator::printMatrixOptions() const {
     cout << "Press 0 to quit" << endl;
 }
 
-void MatrixCalculator::printPlaneOptions() const {
+void Menu::printPlaneOptions() const {
     cout << "Press 1 to find the Plane with normal Vector through a Point" << endl;
     cout << "Press 2 to find the Plane through three Points" << endl;
     cout << "Press 3 to find the Plane that's parallel to a Plane and passes through a Point" << endl;
@@ -90,16 +90,12 @@ void MatrixCalculator::printPlaneOptions() const {
     cout << "Press 7 to find the Plane through a Point with a normal Vector" << endl;
     cout << "Press 8 to find if two Planes are parallel" << endl;
     cout << "Press 9 to find if two Planes are orthogonal" << endl;
+    cout << "Press 10 to find the Angle between two Planes" << endl;
     cout << "Press 0 to quit" << endl;
 }
 
-void MatrixCalculator::printPointOptions() const {
+void Menu::printPointOptions() const {
     cout << "Press 1 to find the Area created by three Points" << endl;
     cout << "Press 2 to find the intersection Point of a Plane and a parametrized Vector" << endl;
-    cout << "Press 0 to quit" << endl;
-}
-
-void MatrixCalculator::printAngleOptions() const {
-    cout << "Press 1 to find the Angle between two Planes" << endl;
     cout << "Press 0 to quit" << endl;
 }

@@ -20,6 +20,6 @@ int main() {
     PointTester pt;
     cout << endl;
     PlaneTester Pt;
-    MatrixCalculator mc;
+    Menu menu;
     return 0;
 }
