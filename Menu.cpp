@@ -73,6 +73,10 @@ void MatrixCalculator::printVectorOptions() const {
 }
 
 void MatrixCalculator::printMatrixOptions() const {
+    cout << "Press 1 to get the determinant of a Matrix" << endl;
+    cout << "Press 2 to solve for X in a 3x3 Matrix" << endl;
+    cout << "Press 2 to solve for Y in a 3x3 Matrix" << endl;
+    cout << "Press 2 to solve for Z in a 3x3 Matrix" << endl;
     cout << "Press 0 to quit" << endl;
 }
 
@@ -96,5 +100,6 @@ void MatrixCalculator::printPointOptions() const {
 }
 
 void MatrixCalculator::printAngleOptions() const {
+    cout << "Press 1 to find the Angle between two Planes" << endl;
     cout << "Press 0 to quit" << endl;
 }
