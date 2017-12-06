@@ -32,7 +32,6 @@ public:
     void scan();
     void WriteToOperator(ostream &out) const;
 private:
-    bool isTwoDimensional = false;
     Vec<Item> myVec;
     friend class PointTester;
 };
@@ -42,7 +41,6 @@ Point<Item>::Point(Item myx, Item myy) {
     myVec.setSize(2);
     myVec[0] = myx;
     myVec[1] = myy;
-    isTwoDimensional = true;
 }
 
 template<class Item>
@@ -66,7 +64,7 @@ Item Point<Item>::getY() const{return myVec[1];}
 
 template<class Item>
 Item Point<Item>::getZ() const{
-    if(isTwoDimensional){throw PointException("getZ", "Tried to get Z on a Point of two dimensions");}
+    if(myVec.getSize() == 2){throw PointException("getZ", "Tried to get Z on a Point of two dimensions");}
     return myVec[2];
 }
 
@@ -78,7 +76,7 @@ void Point<Item>::setY(const Item& item) {myVec[1] = item;}
 
 template<class Item>
 void Point<Item>::setZ(const Item& item) {
-    if(isTwoDimensional){throw PointException("setZ", "Tried to set Z on a Point of two dimensions");}
+    if(myVec.getSize() == 2){throw PointException("setZ", "Tried to set Z on a Point of two dimensions");}
     myVec[2] = item;
 }
 
@@ -106,17 +104,9 @@ template<class Item>
 void Point<Item>::scan(){
     cout << "Please enter the values for your Point:" << endl;
     double scan;
-    if(isTwoDimensional){
-        for(unsigned i = 0; i < 2; i++){
-            cin >> scan;
-            myVec[i] = scan;
-        }
-    }
-    else{
-        for(unsigned i = 0; i < 3; i++){
-            cin >> scan;
-            myVec[i] = scan;
-        }
+    for(unsigned i = 0; i < myVec.getSize(); i++){
+        cin >> scan;
+        myVec[i] = scan;
     }
 }
 
@@ -125,7 +115,7 @@ void Point<Item>::WriteToOperator(ostream &out) const{
     out << "(" << flush;
     for (int i = 0; i < myVec.getSize(); ++i){
         out << myVec[i];
-        if( i == 1 && isTwoDimensional){break;}
+        if( i == 1 && myVec.getSize() == 2){break;}
         if(i<myVec.getSize()-1){out << ", " << flush;}
     }
     out << ")" << flush;

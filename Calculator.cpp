@@ -12,42 +12,41 @@ MatrixCalculator::MatrixCalculator(){
     printMainMenuOptions();
 
     unsigned main;
+    cin >> main;
     //main
-    while(true){
-        cin >> main;
+    switch(main){
         //Vector
-        if(main == 1){
+        case 1:
             printVectorOptions();
             unsigned vector;
+            cin >> vector;
             //vector
-            while(true){
-                if(vector == 1){
+            switch(vector){
 
-                }
             }
 
-        }
         //Matrix
-        else if(main == 2){
+        case 2:
 
-        }
+            break;
         //Plane
-        else if(main == 3){
+        case 3:
 
-        }
+            break;
         //Point
-        else if(main == 4){
+        case 4:
 
-        }
+            break;
         //Angle
-        else if(main == 5){
+        case 5:
 
-        }
+            break;
         //quit
-        else if(main == 0){break; }
-        else{
+        case 0:
+            break;
+        default:
             cerr << "Invalid Option" << flush;
-        }
+            cin >> main;
     }
     //main loop
 
