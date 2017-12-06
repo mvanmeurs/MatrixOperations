@@ -21,14 +21,11 @@ methods:
 
     Vector operations:
 
-        round in getMagnitude to fix errors
-
         make a way to input fractions
             prolly way too hard
 
         Find Area function
         Find Magnitude function
-            make two methods: one that returns a string and another a double
         Find Normal Vector to a plane
         Find Normal Vector to a plane created by three points
         Find parameterized line through a point and orthogonal to plane

@@ -4,7 +4,7 @@
 #include "CalculatorOperationTester.h"
 #include "PointTester.h"
 #include "PlaneTester.h"
-#include "Calculator.h"
+#include "Menu.h"
 
 using namespace std;
 
