@@ -9,7 +9,7 @@
 
 #include "Vec.h"
 #include <cstdlib>
-#include "math.h"
+#include "cmath"
 
 using namespace std;
 
@@ -17,6 +17,7 @@ template<class Item>
 
 class Plane {
 public:
+    Plane();
     Plane(Item, Item, Item, Item);
     ~Plane();
     Item getx() const;
@@ -40,6 +41,12 @@ private:
     Vec<Item> myVec;
     friend class PlaneTester;
 };
+
+template<class Item>
+Plane<Item>::Plane() {
+    myVec.setSize(4);
+    myVec[0] = myVec[1] = myVec[2] = myVec[3] = 0;
+}
 
 template<class Item>
 Plane<Item>::Plane(Item myx, Item myy, Item myz, Item myequals) {

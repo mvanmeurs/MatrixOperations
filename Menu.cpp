@@ -2,6 +2,8 @@
 // Created by mason on 11/28/17.
 //
 
+#include <iostream>
+
 #include "Menu.h"
 
 using namespace std;
@@ -9,74 +11,28 @@ using namespace std;
 Menu::Menu(){
     cout << "Welcome to the Vector Calculus class!" << endl;
     cout << endl;
-    printMainMenuOptions();
 
-    unsigned main;
+    unsigned main = 1;
+    printMenuOptions();
     cin >> main;
     //main
-    switch(main){
-        //Vector
-        case 1:
-            printVectorOptions();
-            unsigned vector;
-            cin >> vector;
-            //vector
-            switch(vector){
-
-            }
-
-        //Matrix
-        case 2:
-
-            break;
-        //Plane
-        case 3:
-
-            break;
-        //Point
-        case 4:
-
-            break;
-        //Angle
-        case 5:
-
-            break;
-        //quit
-        case 0:
-            break;
-        default:
-            cerr << "Invalid Option" << flush;
-            cin >> main;
+    while(main != 0){
+        if(main == 1){
+            VectorCalculator vc;
+        }
+        printMenuOptions();
+        cin >> main;
     }
     //main loop
 
     cout << "Thanks for using the Vector Calculus Class!" << flush;
 }
 
-void Menu::printMainMenuOptions() const {
+void Menu::printMenuOptions() const {
     cout << "Press 1 to perform an operation that returns a Vector" << endl;
     cout << "Press 2 to perform an operation that returns a Matrix" << endl;
     cout << "Press 3 to perform an operation that returns a Plane" << endl;
     cout << "Press 4 to perform an operation that returns a Point" << endl;
-    cout << "Press 5 to perform an operation that returns an Angle" << endl;
-    cout << "Press 0 to quit" << endl;
-}
-
-void Menu::printVectorOptions() const {
-    cout << "Press 1 to find the Area from two Vectors" << endl;
-    cout << "Press 2 to find the Magnitude of a Vector" << endl;
-    cout << "Press 3 to find the Normal Vector to a Plane" << endl;
-    cout << "Press 4 to find the Normal Vector to a plane created by three Points" << endl;
-    cout << "Press 5 to find the parameterized line through a Point and orthogonal to a Plane" << endl;
-    cout << "Press 6 to find the parameterized line through a Point and parallel to Plane" << endl;
-    cout << "Press 0 to quit" << endl;
-}
-
-void Menu::printMatrixOptions() const {
-    cout << "Press 1 to get the determinant of a Matrix" << endl;
-    cout << "Press 2 to solve for X in a 3x3 Matrix" << endl;
-    cout << "Press 2 to solve for Y in a 3x3 Matrix" << endl;
-    cout << "Press 2 to solve for Z in a 3x3 Matrix" << endl;
     cout << "Press 0 to quit" << endl;
 }
 

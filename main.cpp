@@ -15,7 +15,7 @@ int main() {
     MatrixTester mt;
     mt.runTests();
     cout << endl;
-    CalculationOperationTester mot;
+    CalculationOperationTester cot;
     cout << endl;
     PointTester pt;
     cout << endl;

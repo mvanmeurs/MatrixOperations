@@ -7,7 +7,13 @@
 
 
 class VectorCalculator {
-
+public:
+    VectorCalculator();
+private:
+    void getArea();
+    void getMagnitude();
+    void getNormalToPlane();
+    void getNormalToThreePoints();
 };
 
 
