@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include "Vec.h"
 #include "PointException.h"
+#include "MatrixDimensionException.h"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ public:
     bool operator==(const Point<Item>&) const;
     bool operator!=(const Point<Item>&) const;
     Point<Item>& operator=(const Point<Item>&);
+    Vec<Item> getVectorFromPoints(const Point<Item>&);
     void scan();
     void WriteToOperator(ostream &out) const;
 private:
@@ -98,6 +100,16 @@ Point<Item>& Point<Item>::operator=(const Point<Item>& rhs){
         myVec[i] = rhs.myVec[i];
     }
     return *this;
+}
+
+template<class Item>
+Vec<Item> Point<Item>::getVectorFromPoints(const Point<Item>& rhs) {
+    if(myVec.getSize() != rhs.myVec.getSize()){throw MatrixDimensionException("Plane getVectorFromPoints", "Points are of different dimensions");}
+    Vec<Item> result(myVec.getSize());
+    for(unsigned i = 0 ; i < myVec.getSize() ; i++){
+        result[i] = rhs.myVec[i] - myVec[i];
+    }
+    return result;
 }
 
 template<class Item>

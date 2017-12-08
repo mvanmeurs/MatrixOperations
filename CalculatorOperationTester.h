@@ -21,6 +21,7 @@ public:
     void testScaleBy();
     void testVectorGetCrossProduct();
     void testVectorGetMagnitude();
+    void testVectorGetUnitVec();
     void testVectorOperatorOut();
     void testMatrixOperatorOut();
 };

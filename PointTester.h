@@ -16,6 +16,7 @@ public:
     void testOperatorDoubleEquals();
     void testOperatorNotEquals();
     void testOperatorEquals();
+    void testGetVectorFromPoints();
     void testOperatorOut();
 };
 

@@ -19,6 +19,7 @@ PointTester::PointTester(){
     testOperatorDoubleEquals();
     testOperatorNotEquals();
     testOperatorEquals();
+    testGetVectorFromPoints();
     testOperatorOut();
     cout << "All Tests Passed!" << endl;
 }
@@ -221,6 +222,49 @@ void PointTester::testOperatorEquals(){
     p4 = p5;
     assert(p4 == p6);
     cout << " 1 " << flush;
+
+    cout << " Passed!" << endl;
+}
+
+void PointTester::testGetVectorFromPoints(){
+    cout << "Testing getVectorFromPoints..." << flush;
+
+    Point<int> p1(0, 0);
+    Point<int> p2(0, 0);
+    Vec<int> v(2);
+    v[0] = v[1] = 0;
+    assert(p1.getVectorFromPoints(p2) == v);
+    assert(p2.getVectorFromPoints(p1) == v);
+    cout << " 0a " << flush;
+
+    Point<int> p3(0, 0, 0);
+    Point<int> p4(0, 0, 0);
+    Vec<int> v1(3);
+    v1[0] = v1[1] = v1[2] = 0;
+    assert(p3.getVectorFromPoints(p4) == v1);
+    assert(p4.getVectorFromPoints(p3) == v1);
+    cout << " 0b " << flush;
+
+    Point<int> p5(1, 2);
+    Point<int> p6(3, 5);
+    Vec<int> v2(2);
+    v2[0] = 2;
+    v2[1] = 3;
+    assert(p5.getVectorFromPoints(p6) == v2);
+    v2.scaleBy(-1);
+    assert(p6.getVectorFromPoints(p5) == v2);
+    cout << " 1 " << flush;
+
+    Point<int> p7(1, 2, 3);
+    Point<int> p8(3, 6, 10);
+    Vec<int> v3(3);
+    v3[0] = 2;
+    v3[1] = 4;
+    v3[2] = 7;
+    assert(p7.getVectorFromPoints(p8) == v3);
+    v3.scaleBy(-1);
+    assert(p8.getVectorFromPoints(p7) == v3);
+    cout << " 2 " << flush;
 
     cout << " Passed!" << endl;
 }

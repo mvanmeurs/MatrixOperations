@@ -17,6 +17,7 @@ CalculationOperationTester::CalculationOperationTester(){
     testScaleBy();
     testVectorGetCrossProduct();
     testVectorGetMagnitude();
+    testVectorGetUnitVec();
     testVectorOperatorOut();
     testMatrixOperatorOut();
     cout << "All tests passed!" << endl;
@@ -473,6 +474,19 @@ void CalculationOperationTester::testVectorGetMagnitude(){
 
     assert(v2.getMagnitude() == 8.0);
     cout << " 1 " << flush;
+
+    cout << " Passed!" << endl;
+}
+
+void CalculationOperationTester::testVectorGetUnitVec(){
+    cout << "Testing Vec getUnitVec..." << flush;
+
+    Vec<int> v1(3);
+    v1[0] = v1[1] = v1[2] = 0;
+    assert(v1.getUnitVec() == v1);
+    cout << " 0 " << flush;
+
+    //add more tests
 
     cout << " Passed!" << endl;
 }

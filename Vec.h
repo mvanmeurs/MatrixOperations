@@ -46,6 +46,7 @@ public:
 	void scaleBy(const double&);
 	Vec<Item> getCrossProduct(const Vec<Item>&) const;
     double getMagnitude() const;
+	Vec<Item> getUnitVec() const;
     void scan();
 	void WriteToOperator(ostream &) const;
 private:
@@ -418,6 +419,16 @@ double Vec<Item>::getMagnitude() const{
         sum += pow(myArray[i], 2);
     }
     return sqrt(sum);
+}
+
+template<class Item>
+Vec<Item> Vec<Item>::getUnitVec() const{
+	Vec<Item> result(mySize);
+	for(unsigned i = 0 ; i < mySize ; i++){
+		if(getMagnitude() == 0){return result;}
+		result.myArray[i] = (myArray[i]/getMagnitude());
+	}
+	return result;
 }
 
 template<class Item>
