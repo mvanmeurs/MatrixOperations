@@ -482,11 +482,21 @@ void CalculationOperationTester::testVectorGetUnitVec(){
     cout << "Testing Vec getUnitVec..." << flush;
 
     Vec<int> v1(3);
-    v1[0] = v1[1] = v1[2] = 0;
+    //Vec<int> v4(3);
+    //v1[0] = v1[1] = v1[2] = v4[0] = v4[1] = v4[2] = 0;
     assert(v1.getUnitVec() == v1);
     cout << " 0 " << flush;
 
-    //add more tests
+    Vec<double> v2(3);
+    v2[0] = 0;
+    v2[1] = 3;
+    v2[2] = 4;
+    Vec<double> v3(3);
+    v3[0] = 0;
+    v3[1] = 0.6;
+    v3[2] = 0.8;
+    assert(v2.getUnitVec() == v3);
+    cout << " 1 " << flush;
 
     cout << " Passed!" << endl;
 }

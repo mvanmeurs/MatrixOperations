@@ -41,7 +41,6 @@ methods:
     Add:
         get Vector projected along another Vector
         get Vector perpendicular to another Vector
-        getUnitVector
 
     Vector:
         getUnitVector modifies itself instead of returning a Vec.

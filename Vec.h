@@ -423,12 +423,13 @@ double Vec<Item>::getMagnitude() const{
 
 template<class Item>
 Vec<Item> Vec<Item>::getUnitVec() const{
-	Vec<Item> result(mySize);
+    Vec<Item> result(mySize);
+    if(getMagnitude() == 0){ return result; }
+    double magnitude = getMagnitude();
 	for(unsigned i = 0 ; i < mySize ; i++){
-		if(getMagnitude() == 0){return result;}
-		result.myArray[i] = (myArray[i]/getMagnitude());
+        result.myArray[i] = (myArray[i]/magnitude);
 	}
-	return result;
+    return result;
 }
 
 template<class Item>
