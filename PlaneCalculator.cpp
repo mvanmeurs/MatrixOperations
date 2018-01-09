@@ -31,10 +31,10 @@ PlaneCalculator::PlaneCalculator() {
             getPlaneNormalVecPoint();
             break;
         case 2:
-
+            getPlaneThroughPoints();
             break;
         case 3:
-
+            getPlaneParallelThroughPoint();
             break;
         case 4:
 
@@ -56,4 +56,26 @@ void PlaneCalculator::getPlaneNormalVecPoint(){
     pt.scan();
     Pl.setPlane(v, pt);
     cout << "The Plane normal to " << v << " that passes through " << pt << " is " << Pl << endl;
+}
+
+void PlaneCalculator::getPlaneThroughPoints() {
+    Point<double> p1(0, 0, 0);
+    Point<double> p2(0, 0, 0);
+    Point<double> p3(0, 0, 0);
+    Plane<double> p(0, 0, 0, 0);
+    p1.scan();
+    p2.scan();
+    p3.scan();
+    p.setPlane(p1.getVectorFromPoints(p2).getCrossProduct(p1.getVectorFromPoints(p3)), p1);
+    cout << "The Plane made from Points " << p1 << ", " << p2 << ", " << p3 << " is " << p << endl;
+}
+
+void PlaneCalculator::getPlaneParallelThroughPoint(){
+    Plane<double> plane(0, 0, 0, 0);
+    plane.scan();
+    Point<double> point(0, 0, 0);
+    point.scan();
+    Plane<double> result(0, 0, 0, 0);
+    result.setPlane(plane.getCoefficients(), point);
+    cout << "The plane parallel to " << plane << " and " << point << " is " << result << endl;
 }

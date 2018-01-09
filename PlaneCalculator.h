@@ -11,6 +11,8 @@ public:
     PlaneCalculator();
 private:
     void getPlaneNormalVecPoint();
+    void getPlaneThroughPoints();
+    void getPlaneParallelThroughPoint();
 };
 
 
