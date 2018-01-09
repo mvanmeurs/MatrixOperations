@@ -2,8 +2,8 @@
 // Created by mason on 11/28/17.
 //
 
-#ifndef MATRIXOPERATIONS_MATRIXCALCULATOR_H
-#define MATRIXOPERATIONS_MATRIXCALCULATOR_H
+#ifndef MATRIXOPERATIONS_MENU_H
+#define MATRIXOPERATIONS_MENU_H
 
 #include "VectorCalculator.h"
 #include "MatrixCalculator.h"
@@ -20,4 +20,4 @@ private:
 };
 
 
-#endif //MATRIXOPERATIONS_MATRIXCALCULATOR_H
+#endif //MATRIXOPERATIONS_MENU_H

@@ -1,9 +1,5 @@
 //
-// Created by mason on 12/6/17.
+// Created by mason on 1/9/18.
 //
 
 #include "MatrixCalculator.h"
-
-MatrixCalculator::MatrixCalculator() {
-
-}

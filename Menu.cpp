@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "Menu.h"
+#include "MatrixCalculator.h"
 
 using namespace std;
 
@@ -19,6 +20,9 @@ Menu::Menu(){
     while(main != 0){
         if(main == 1){
             VectorCalculator vc;
+        }
+        else if(main == 2){
+            MatrixCalculator mc;
         }
         printMenuOptions();
         cin >> main;
