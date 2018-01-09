@@ -7,7 +7,11 @@
 
 
 class MatrixCalculator {
-
+public:
+    MatrixCalculator();
+private:
+    void getDeterminant();
+    void getCoefficient();
 };
 
 
