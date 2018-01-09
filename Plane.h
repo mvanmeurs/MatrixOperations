@@ -10,6 +10,7 @@
 #include "Vec.h"
 #include <cstdlib>
 #include "cmath"
+#include "Point.h"
 
 using namespace std;
 
@@ -32,6 +33,7 @@ public:
     void setY(const Item&);
     void setZ(const Item&);
     void setEqualsTo(const Item&);
+    void setPlane(const Vec<Item>&, const Point<Item>&);
     bool operator==(const Plane<Item>&) const;
     bool operator!=(const Plane<Item>&) const;
     void scan();
@@ -125,6 +127,14 @@ void Plane<Item>::setZ(const Item& setZ){
 template<class Item>
 void Plane<Item>::setEqualsTo(const Item& setequals){
     myVec[3] = setequals;
+}
+
+template<class Item>
+void Plane<Item>::setPlane(const Vec<Item>& normalVec, const Point<Item>& point){
+    for(unsigned i = 0 ; i < normalVec.getSize() ; i++){
+        myVec[i] = normalVec[i];
+    }
+    setEqualsTo(normalVec.getDotProduct(point.getVector()));
 }
 
 template<class Item>

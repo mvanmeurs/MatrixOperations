@@ -7,7 +7,10 @@
 
 
 class PlaneCalculator {
-
+public:
+    PlaneCalculator();
+private:
+    void getPlaneNormalVecPoint();
 };
 
 
