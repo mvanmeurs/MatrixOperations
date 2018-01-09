@@ -37,8 +37,10 @@ PlaneCalculator::PlaneCalculator() {
             getPlaneParallelThroughPoint();
             break;
         case 4:
-
+            getPlaneNormalToVecThroughPoint();
             break;
+        case 5:
+            getAngleBetweenPlanes();
         case 0:
             break;
         default:
@@ -55,7 +57,7 @@ void PlaneCalculator::getPlaneNormalVecPoint(){
     v.scan();
     pt.scan();
     Pl.setPlane(v, pt);
-    cout << "The Plane normal to " << v << " that passes through " << pt << " is " << Pl << endl;
+    cout << "The Plane from the normal Vector " << v << " that passes through " << pt << " is " << Pl << endl;
 }
 
 void PlaneCalculator::getPlaneThroughPoints() {
@@ -78,4 +80,18 @@ void PlaneCalculator::getPlaneParallelThroughPoint(){
     Plane<double> result(0, 0, 0, 0);
     result.setPlane(plane.getCoefficients(), point);
     cout << "The plane parallel to " << plane << " and " << point << " is " << result << endl;
+}
+
+void PlaneCalculator::getPlaneNormalToVecThroughPoint(){
+    Vec<double> vec(3);
+    vec.scan();
+    Point<double> point(0, 0, 0);
+    point.scan();
+    Plane<double> plane(0, 0, 0, 0);
+    plane.setPlane(vec, point);
+    cout << "The Plane normal to " << vec << " that passes through " << point << " is " << plane << endl;
+}
+
+void PlaneCalculator::getAngleBetweenPlanes(){
+
 }

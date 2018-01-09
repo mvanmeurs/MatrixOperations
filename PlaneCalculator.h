@@ -13,6 +13,8 @@ private:
     void getPlaneNormalVecPoint();
     void getPlaneThroughPoints();
     void getPlaneParallelThroughPoint();
+    void getPlaneNormalToVecThroughPoint();
+    void getAngleBetweenPlanes();
 };
 
 
