@@ -5,6 +5,7 @@
 #include "VectorCalculator.h"
 #include "Vec.h"
 #include "Plane.h"
+#include "Point.h"
 
 using namespace std;
 
@@ -29,6 +30,9 @@ VectorCalculator::VectorCalculator() {
             break;
         case 3:
             getNormalToPlane();
+            break;
+        case 4:
+            getNormalToThreePoints();
             break;
         case 0:
             break;
@@ -63,5 +67,15 @@ void VectorCalculator::getNormalToPlane() {
 }
 
 void VectorCalculator::getNormalToThreePoints() {
+    Point<double> p1(0, 0, 0);
+    Point<double> p2(0, 0, 0);
+    Point<double> p3(0, 0, 0);
 
+    p1.scan();
+    p2.scan();
+    p3.scan();
+
+    cout << "The Normal Vector to the Plane created by your three points is "
+         << p1.getVectorFromPoints(p2).getCrossProduct(p1.getVectorFromPoints(p3))
+         << endl;
 }
