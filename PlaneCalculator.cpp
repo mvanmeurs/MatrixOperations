@@ -17,10 +17,7 @@ PlaneCalculator::PlaneCalculator() {
     cout << "Press 4 to find the Plane that's normal to a Vector and passes through a Point" << endl;
     cout << "Press 5 to find the Angle between two Planes" << endl;
     cout << "Press 6 to find the Plane formed by two parametrized Vectors" << endl;
-    cout << "Press 7 to find the Plane through a Point with a normal Vector" << endl;
-    cout << "Press 8 to find if two Planes are parallel" << endl;
-    cout << "Press 9 to find if two Planes are orthogonal" << endl;
-    cout << "Press 10 to find the Angle between two Planes" << endl;
+    cout << "Press 7 to find if two Planes are parallel or orthogonal" << endl;
     cout << "Press 0 to quit" << endl;
 
     unsigned user = 0;
@@ -41,6 +38,10 @@ PlaneCalculator::PlaneCalculator() {
             break;
         case 5:
             getAngleBetweenPlanes();
+            break;
+        case 7:
+            getIfParallelOrthogonal();
+            break;
         case 0:
             break;
         default:
@@ -93,5 +94,20 @@ void PlaneCalculator::getPlaneNormalToVecThroughPoint(){
 }
 
 void PlaneCalculator::getAngleBetweenPlanes(){
+    Plane<double> p1(0, 0, 0, 0);
+    Plane<double> p2(0, 0, 0, 0);
+    p1.scan();
+    p2.scan();
+    cout << "Cos(0) = " << p1.getCosine(p2) << endl;
+    cout << "0 = " << acos(p1.getCosine(p2)) << endl;
+}
 
+void PlaneCalculator::getIfParallelOrthogonal(){
+    Plane<double> p1(0, 0, 0, 0);
+    Plane<double> p2(0, 0, 0, 0);
+    p1.scan();
+    p2.scan();
+    if(acos(p1.getCosine(p2)) == 0){cout << p1 << " and " << p2 << " are parallel" << endl;}
+    else if(acos(p1.getCosine(p2)) == 90){cout << p1 << " and " << p2 << " are orthogonal" << endl;}
+    else{cout << p1 << " and " << p2 << " are neither parallel or orthogonal" << endl;}
 }

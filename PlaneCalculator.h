@@ -15,6 +15,7 @@ private:
     void getPlaneParallelThroughPoint();
     void getPlaneNormalToVecThroughPoint();
     void getAngleBetweenPlanes();
+    void getIfParallelOrthogonal();
 };
 
 

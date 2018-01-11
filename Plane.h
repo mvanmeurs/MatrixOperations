@@ -34,6 +34,7 @@ public:
     void setZ(const Item&);
     void setEqualsTo(const Item&);
     void setPlane(const Vec<Item>&, const Point<Item>&);
+    double getCosine(const Plane<Item>&) const;
     bool operator==(const Plane<Item>&) const;
     bool operator!=(const Plane<Item>&) const;
     void scan();
@@ -135,6 +136,15 @@ void Plane<Item>::setPlane(const Vec<Item>& normalVec, const Point<Item>& point)
         myVec[i] = normalVec[i];
     }
     setEqualsTo(normalVec.getDotProduct(point.getVector()));
+}
+
+template<class Item>
+double Plane<Item>::getCosine(const Plane<Item>& rhs) const{
+    Vec<Item> lhs(3);
+    for(unsigned i = 0 ; i < 3 ; i++){
+        lhs[i] = myVec[i];
+    }
+    return (lhs.getDotProduct(rhs.getCoefficients()))/((lhs.getMagnitude())*(rhs.getCoefficients().getMagnitude()));
 }
 
 template<class Item>
