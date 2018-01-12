@@ -16,7 +16,7 @@ PlaneCalculator::PlaneCalculator() {
     cout << "Press 3 to find the Plane that's parallel to a Plane and passes through a Point" << endl;
     cout << "Press 4 to find the Plane that's normal to a Vector and passes through a Point" << endl;
     cout << "Press 5 to find the Angle between two Planes" << endl;
-    cout << "Press 6 to find the Plane formed by two parametrized Vectors" << endl;
+    //cout << "Press 6 to find the Plane formed by two parametrized Vectors" << endl;
     cout << "Press 7 to find if two Planes are parallel or orthogonal" << endl;
     cout << "Press 0 to quit" << endl;
 

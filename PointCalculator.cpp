@@ -10,7 +10,7 @@ using namespace std;
 
 PointCalculator::PointCalculator() {
     cout << "Press 1 to find the Area created by three Points" << endl;
-    cout << "Press 2 to find the intersection Point of a Plane and a parametrized Vector" << endl;
+    //cout << "Press 2 to find the intersection Point of a Plane and a parametrized Vector" << endl;
     cout << "Press 0 to quit" << endl;
 
     unsigned user = 0;

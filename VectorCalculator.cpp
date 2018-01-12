@@ -14,8 +14,8 @@ VectorCalculator::VectorCalculator() {
     cout << "Press 2 to find the Magnitude of a Vector" << endl;
     cout << "Press 3 to find the Normal Vector to a Plane" << endl;
     cout << "Press 4 to find the Normal Vector to a plane created by three Points" << endl;
-    cout << "Press 5 to find the parameterized line through a Point and orthogonal to a Plane" << endl;
-    cout << "Press 6 to find the parameterized line through a Point and parallel to Plane" << endl;
+    //cout << "Press 5 to find the parameterized line through a Point and orthogonal to a Plane" << endl;
+    //cout << "Press 6 to find the parameterized line through a Point and parallel to Plane" << endl;
     cout << "Press 0 to quit" << endl;
 
     unsigned user = 0;
