@@ -15,8 +15,6 @@ public:
     Menu();
 private:
     void printMenuOptions() const;
-    void printPlaneOptions() const;
-    void printPointOptions() const;
 };
 
 

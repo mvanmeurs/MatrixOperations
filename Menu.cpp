@@ -5,7 +5,6 @@
 #include <iostream>
 
 #include "Menu.h"
-#include "MatrixCalculator.h"
 
 using namespace std;
 
@@ -27,6 +26,9 @@ Menu::Menu(){
         else if(main == 3){
             PlaneCalculator pc;
         }
+        else if(main == 4){
+            PointCalculator pc;
+        }
         printMenuOptions();
         cin >> main;
     }
@@ -40,11 +42,5 @@ void Menu::printMenuOptions() const {
     cout << "Press 2 to perform an operation that returns a Matrix" << endl;
     cout << "Press 3 to perform an operation that returns a Plane" << endl;
     cout << "Press 4 to perform an operation that returns a Point" << endl;
-    cout << "Press 0 to quit" << endl;
-}
-
-void Menu::printPointOptions() const {
-    cout << "Press 1 to find the Area created by three Points" << endl;
-    cout << "Press 2 to find the intersection Point of a Plane and a parametrized Vector" << endl;
     cout << "Press 0 to quit" << endl;
 }

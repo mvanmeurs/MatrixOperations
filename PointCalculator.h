@@ -7,7 +7,10 @@
 
 
 class PointCalculator {
-
+public:
+    PointCalculator();
+private:
+    void getArea();
 };
 
 
