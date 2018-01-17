@@ -48,7 +48,6 @@ private:
 template<class Item>
 Plane<Item>::Plane() {
     myVec.setSize(4);
-    myVec[0] = myVec[1] = myVec[2] = myVec[3] = 0;
 }
 
 template<class Item>

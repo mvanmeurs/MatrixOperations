@@ -18,6 +18,7 @@ template<class Item>
 
 class Point {
 public:
+    Point();
     Point(Item, Item);
     Point(Item, Item, Item);
     ~Point();
@@ -38,6 +39,11 @@ private:
     Vec<Item> myVec;
     friend class PointTester;
 };
+
+template<class Item>
+Point<Item>::Point(){
+    myVec.setSize(3);
+}
 
 template<class Item>
 Point<Item>::Point(Item myx, Item myy) {

@@ -187,9 +187,6 @@ void Vec<Item>::setSize(unsigned newSize) {
 			for (int i = 0; i < mySize; i++) {
 				newArray[i] = myArray[i];
 			}
-//			for (int i = mySize; i < newSize; i++) {
-//				newArray[i] = 0;
-//			}
 		} else {
 
 			for (int i = 0; i < newSize; i++) {
