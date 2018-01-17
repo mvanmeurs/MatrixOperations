@@ -42,6 +42,7 @@ public:
 	Matrix<Item> getTranspose() const;
     Item getDeterminant() const;
     Item getVariable(const char&) const;
+    void WriteToOperator(ostream &out) const;
     void scan();
 private:
 	unsigned myRows;
@@ -52,7 +53,6 @@ private:
     Item getX() const;
     Item getY() const;
     Item getZ() const;
-	void WriteToOperator(ostream &out) const;
 	friend class MatrixTester;
     friend class CalculationOperationTester;
 };
