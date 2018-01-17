@@ -43,7 +43,6 @@ public:
     Item getDeterminant() const;
     Item getVariable(const char&) const;
     void scan();
-	void WriteToOperator(ostream &out) const;
 private:
 	unsigned myRows;
 	unsigned myColumns;
@@ -53,6 +52,7 @@ private:
     Item getX() const;
     Item getY() const;
     Item getZ() const;
+	void WriteToOperator(ostream &out) const;
 	friend class MatrixTester;
     friend class CalculationOperationTester;
 };
