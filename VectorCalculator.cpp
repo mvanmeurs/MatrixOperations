@@ -84,14 +84,13 @@ void VectorCalculator::getNormalToThreePoints() {
          << endl;
 }
 
-void getParaLinePointOrthPlane() {
+void VectorCalculator::getParaLinePointOrthPlane() {
     Point<double> point(0, 0, 0);
     point.scan();
     Plane<double> plane(0, 0, 0, 0);
     plane.scan();
     Vec<double> v;
-    v = plane.getCoefficients();
-    ParaVec<double> paravec(point, v);
+    ParaVec<double> paravec(point, plane.getCoefficients());
 
-    cout << "The parameterized line through " << point << " and " << plane << " is " << paravec << endl;
+    cout << "The parameterized line through " << point << " and orthogonal to " << plane << " is " << paravec << endl;
 }

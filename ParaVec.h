@@ -16,14 +16,14 @@ template<class Item>
 class ParaVec {
 public:
     ParaVec();
-    ParaVec(Point<Item>&, Vec<Item>&);
+    ParaVec(Point<Item>&, Vec<Item>);
     void scan();
     Point<Item>& getPoint() const;
     Vec<Item>& getVec() const;
+    void WriteToOperator(ostream &out) const;
 private:
     Point<Item> myPoint;
     Vec<Item> myCoefficients;
-    void WriteToOperator(ostream &out) const;
     //friend class ParaVecTester;
 };
 
@@ -33,7 +33,7 @@ ParaVec<Item>::ParaVec() {
 }
 
 template<class Item>
-ParaVec<Item>::ParaVec(Point<Item>& point, Vec<Item>& vec) {
+ParaVec<Item>::ParaVec(Point<Item>& point, Vec<Item> vec) {
     myPoint = point;
     myCoefficients = vec;
 }
