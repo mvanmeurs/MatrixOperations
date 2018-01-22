@@ -17,6 +17,8 @@ class ParaVec {
 public:
     ParaVec();
     void scan();
+    Point<Item>& getPoint() const;
+    Vec<Item>& getVec() const;
 private:
     Point<Item> myPoint;
     Vec<Item> myCoefficients;
@@ -34,6 +36,16 @@ void ParaVec<Item>::scan() {
     cout << "Please enter a Point on your Vector:" << endl;
     myPoint.scan();
     myCoefficients.scan();
+}
+
+template<class Item>
+Point<Item>& ParaVec<Item>::getPoint() const {
+    return myPoint;
+}
+
+template<class Item>
+Vec<Item>& ParaVec<Item>::getVec() const {
+    return myCoefficients;
 }
 
 template<class Item>
