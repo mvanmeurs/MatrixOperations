@@ -14,6 +14,7 @@ private:
     void getMagnitude();
     void getNormalToPlane();
     void getNormalToThreePoints();
+    void getParaLinePointOrthPlane();
 };
 
 

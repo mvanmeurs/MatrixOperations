@@ -16,6 +16,7 @@ template<class Item>
 class ParaVec {
 public:
     ParaVec();
+    ParaVec(Point<Item>&, Vec<Item>&);
     void scan();
     Point<Item>& getPoint() const;
     Vec<Item>& getVec() const;
@@ -29,6 +30,12 @@ private:
 template<class Item>
 ParaVec<Item>::ParaVec() {
     myCoefficients.setSize(3);
+}
+
+template<class Item>
+ParaVec<Item>::ParaVec(Point<Item>& point, Vec<Item>& vec) {
+    myPoint = point;
+    myCoefficients = vec;
 }
 
 template<class Item>

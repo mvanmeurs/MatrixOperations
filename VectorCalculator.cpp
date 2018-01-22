@@ -6,6 +6,7 @@
 #include "Vec.h"
 #include "Plane.h"
 #include "Point.h"
+#include "ParaVec.h"
 
 using namespace std;
 
@@ -33,6 +34,9 @@ VectorCalculator::VectorCalculator() {
             break;
         case 4:
             getNormalToThreePoints();
+            break;
+        case 5:
+            getParaLinePointOrthPlane();
             break;
         case 0:
             break;
@@ -78,4 +82,16 @@ void VectorCalculator::getNormalToThreePoints() {
     cout << "The Normal Vector to the Plane created by your three points is "
          << p1.getVectorFromPoints(p2).getCrossProduct(p1.getVectorFromPoints(p3))
          << endl;
+}
+
+void getParaLinePointOrthPlane() {
+    Point<double> point(0, 0, 0);
+    point.scan();
+    Plane<double> plane(0, 0, 0, 0);
+    plane.scan();
+    Vec<double> v;
+    v = plane.getCoefficients();
+    ParaVec<double> paravec(point, v);
+
+    cout << "The parameterized line through " << point << " and " << plane << " is " << paravec << endl;
 }
